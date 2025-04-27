@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praca Dyplomowa - Wstawianie Danych</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Praca Dyplomowa - Wstawianie Danych</h1>
+    </header>
+    <main>
+        <h2>Formularz Wstawiania Danych</h2>
+        <form>
+            <label for="data-type">Typ Danych:</label>
+            <select id="data-type" name="data-type">
+                <option value="financial">Dane Finansowe</option>
+                <option value="business">Dane Biznesowe</option>
+                <option value="security">Dane Bezpieczeństwa</option>
+            </select>
+
+            <label for="data-title">Tytuł:</label>
+            <input type="text" id="data-title" name="data-title" placeholder="Wprowadź tytuł danych" required>
+
+            <label for="data-description">Opis:</label>
+            <textarea id="data-description" name="data-description" rows="5" placeholder="Wprowadź opis danych" required></textarea>
+
+            <label for="data-file">Plik Danych:</label>
+            <input type="file" id="data-file" name="data-file" accept=".csv, .xlsx, .json">
+
+            <button type="submit">Wyślij</button>
+        </form>
+    </main>
+    <footer>
+        &copy; 2023 Praca Dyplomowa - Wszystkie prawa zastrzeżone
+    </footer>
+</body>
+</html>
