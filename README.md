@@ -33,24 +33,24 @@ Globalne korporacje handlowo-finansowe, zarządzające zarówno sprzedażą, jak
    - Skrypty do zasilania Azure SQL Database i Azure Blob Storage
    - Walidacja i transformacja danych przed załadowaniem do baz docelowych
    - Biblioteki wymagane:
-     * Podstawowe: pandas, numpy, python-dotenv
-     * Azure SDK: azure-storage-blob, azure-identity
-     * Bazy danych: pyodbc (lub sqlalchemy)
-     * Web i API: Flask, Flask-WTF
-     * Obsługa plików: csv, json
+     - Podstawowe: pandas, numpy, python-dotenv
+     - Azure SDK: azure-storage-blob, azure-identity
+     - Bazy danych: pyodbc (lub sqlalchemy)
+     - Web i API: Flask, Flask-WTF
+     - Obsługa plików: csv, json
    - Biblioteki dodatkowe (w razie potrzeby):
-     * Analiza zaawansowana: scipy, scikit-learn
-     * Wizualizacja: matplotlib, seaborn
-     * Azure rozszerzone: azure-cosmos, azure-mgmt-sql, azure-keyvault-secrets
-     * Bazy danych dodatkowe: pymongo
-     * Web i API rozszerzone: Flask-RESTful, Flask-SQLAlchemy, requests
-     * Walidacja danych: Great Expectations, pandera
-     * Obsługa plików zaawansowana: openpyxl, xlrd
-     * Narzędzia pomocnicze: logging, tqdm
-     * Testowanie: pytest, unittest
-     * Bezpieczeństwo: cryptography, azure-keyvault
-     * Monitorowanie: opencensus-ext-azure, applicationinsights
-     * Zadania asynchroniczne (jeśli potrzebne): celery, redis
+     - Analiza zaawansowana: scipy, scikit-learn
+     - Wizualizacja: matplotlib, seaborn
+     - Azure rozszerzone: azure-cosmos, azure-mgmt-sql, azure-keyvault-secrets
+     - Bazy danych dodatkowe: pymongo
+     - Web i API rozszerzone: Flask-RESTful, Flask-SQLAlchemy, requests
+     - Walidacja danych: Great Expectations, pandera
+     - Obsługa plików zaawansowana: openpyxl, xlrd
+     - Narzędzia pomocnicze: logging, tqdm
+     - Testowanie: pytest, unittest
+     - Bezpieczeństwo: cryptography, azure-keyvault
+     - Monitorowanie: opencensus-ext-azure, applicationinsights
+     - Zadania asynchroniczne (jeśli potrzebne): celery, redis
 7. Flask
    - Implementacja panelu administracyjnego w postaci aplikacji webowej
    - Obsługa formularzy do wprowadzania i edycji danych
@@ -60,24 +60,28 @@ Globalne korporacje handlowo-finansowe, zarządzające zarówno sprzedażą, jak
 ## Architektura systemu:
 
 1. **Warstwa danych źródłowych**
+
    - Lokalne bazy danych (SQL Server, MongoDB)
    - Pliki źródłowe (CSV, JSON, Excel)
    - Systemy zewnętrzne dostarczające dane
    - Panel administracyjny Flask do ręcznego wprowadzania i edycji danych
 
 2. **Warstwa transferu i przechowywania**
+
    - Skrypty Pythona do automatycznego przesyłania danych
    - Azure Blob Storage do przechowywania danych niestrukturyzowanych
    - Azure Data Factory do orkiestracji przepływów danych
    - Flask API do bezpośredniego wstawiania danych do Azure SQL i Azure Blob Storage
 
 3. **Warstwa przetwarzania**
+
    - Procesy ETL w Azure Data Factory
    - Skrypty Python do czyszczenia i transformacji danych
    - Procedury SQL do analizy i agregacji
    - Middleware Flask do walidacji danych przed zapisem
 
 4. **Warstwa magazynowania**
+
    - Azure SQL Database - dane strukturalne
    - Azure Cosmos DB - dane niestrukturalne i elastyczne
 
@@ -85,3 +89,11 @@ Globalne korporacje handlowo-finansowe, zarządzające zarówno sprzedażą, jak
    - Power BI - raportowanie i wizualizacja
    - Aplikacja webowa Flask do monitorowania - panel zarządzania danymi
    - Interaktywne formularze do wstawiania danych do Azure
+
+## Dokumentacja
+
+W projekcie dostępne są następujące dokumenty:
+
+- [Dokumentacja bazy danych](./Dokumentacja-Bazy-Danych.md) - szczegółowy opis struktury bazy danych, diagramy ERD oraz przykładowe zapytania
+- [Strona panelu administracyjnego](./strona/dashboard.html) - panel do wprowadzania i zarządzania danymi
+- [Panel wstawiania danych](./Strona-Wstawianie_Danych/dashboard.html) - interfejs do wstawiania danych do systemu
