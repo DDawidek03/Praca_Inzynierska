@@ -1,757 +1,1072 @@
 <!DOCTYPE html>
 <html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel Zarządzania SalesDB</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panel Zarządzania GlobalVista</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="dashboard.css">
-</head>
-<body class="bg-gray-100">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
+      rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="dashboard.css" />
+  </head>
+  <body class="bg-gray-100">
     <!-- Top Navigation -->
     <nav class="bg-white shadow-lg px-6 py-4">
-        <div class="flex justify-between items-center">
-            <div class="flex items-center space-x-4">
-                <a href="index.html" class="text-2xl font-bold text-blue-700">SalesDB</a>
-                <span class="text-gray-500">|</span>
-                <h1 class="text-xl font-semibold text-gray-700">Panel Zarządzania Danymi</h1>
-            </div>
-            <div class="flex items-center space-x-4">
-                <a href="index.html" class="text-gray-600 hover:text-blue-700">
-                    <i class="fas fa-home mr-2"></i>Strona Główna
-                </a>
-                <button id="helpBtn" class="text-gray-600 hover:text-blue-700">
-                    <i class="fas fa-question-circle mr-2"></i>Pomoc
-                </button>
-            </div>
+      <div class="flex justify-between items-center">
+        <div class="flex items-center space-x-4">
+          <a href="index.html" class="text-2xl font-bold text-blue-700"
+            >GlobalVista</a
+          >
+          <span class="text-gray-500">|</span>
+          <h1 class="text-xl font-semibold text-gray-700">
+            Panel Zarządzania Danymi
+          </h1>
         </div>
+        <div class="flex items-center space-x-4">
+          <a href="index.html" class="text-gray-600 hover:text-blue-700">
+            <i class="fas fa-home mr-2"></i>Strona Główna
+          </a>
+          <button id="helpBtn" class="text-gray-600 hover:text-blue-700">
+            <i class="fas fa-question-circle mr-2"></i>Pomoc
+          </button>
+        </div>
+      </div>
     </nav>
 
     <div class="flex min-h-screen">
-        <!-- Sidebar Navigation -->
-        <div class="w-64 bg-gray-800 text-white p-4">
-            <h2 class="text-xl font-semibold mb-8 pb-2 border-b border-gray-700">Nawigacja</h2>
-            
-            <!-- SQL Database Section -->
-            <div class="mb-6">
-                <h3 class="uppercase text-xs text-gray-400 font-semibold mb-2">MS SQL Server</h3>
-                <ul class="space-y-2">
-                    <li>
-                        <a href="#sql-sales" class="sidebar-link">
-                            <i class="fas fa-shopping-cart mr-2"></i>Moduł Sprzedażowy
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#sql-banking" class="sidebar-link">
-                            <i class="fas fa-university mr-2"></i>Moduł Bankowy
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#sql-geo" class="sidebar-link">
-                            <i class="fas fa-globe mr-2"></i>Moduł Geograficzny
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#sql-sellers" class="sidebar-link">
-                            <i class="fas fa-users mr-2"></i>Sprzedawcy
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            
-            <!-- MongoDB Section -->
-            <div class="mb-6">
-                <h3 class="uppercase text-xs text-gray-400 font-semibold mb-2">MongoDB</h3>
-                <ul class="space-y-2">
-                    <li>
-                        <a href="#mongo-purchase" class="sidebar-link">
-                            <i class="fas fa-history mr-2"></i>Historie Zakupów
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#mongo-transactions" class="sidebar-link">
-                            <i class="fas fa-exchange-alt mr-2"></i>Logi Transakcji
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#mongo-behavior" class="sidebar-link">
-                            <i class="fas fa-chart-line mr-2"></i>Zachowania Klientów
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#mongo-profiles" class="sidebar-link">
-                            <i class="fas fa-id-card mr-2"></i>Profile Sprzedawców
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            
-            <!-- Azure Section -->
-            <div class="mb-6">
-                <h3 class="uppercase text-xs text-gray-400 font-semibold mb-2">Azure</h3>
-                <ul class="space-y-2">
-                    <li>
-                        <a href="#azure-storage" class="sidebar-link">
-                            <i class="fas fa-database mr-2"></i>Azure Storage
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#azure-data-factory" class="sidebar-link">
-                            <i class="fas fa-cogs mr-2"></i>Data Factory
-                        </a>
-                    </li>
-                </ul>
-            </div>
+      <!-- Sidebar Navigation -->
+      <div class="w-64 bg-gray-800 text-white p-4">
+        <h2 class="text-xl font-semibold mb-8 pb-2 border-b border-gray-700">
+          Nawigacja
+        </h2>
+
+        <!-- SQL Database Section -->
+        <div class="mb-6">
+          <h3 class="uppercase text-xs text-gray-400 font-semibold mb-2">
+            MS SQL Server
+          </h3>
+          <ul class="space-y-2">
+            <li>
+              <a href="#sql-sales" class="sidebar-link">
+                <i class="fas fa-shopping-cart mr-2"></i>Moduł Sprzedażowy
+              </a>
+            </li>
+            <li>
+              <a href="#sql-banking" class="sidebar-link">
+                <i class="fas fa-university mr-2"></i>Moduł Bankowy
+              </a>
+            </li>
+            <li>
+              <a href="#sql-geo" class="sidebar-link">
+                <i class="fas fa-globe mr-2"></i>Moduł Geograficzny
+              </a>
+            </li>
+            <li>
+              <a href="#sql-sellers" class="sidebar-link">
+                <i class="fas fa-users mr-2"></i>Sprzedawcy
+              </a>
+            </li>
+          </ul>
         </div>
 
-        <!-- Main Content Area -->
-        <div class="flex-1 p-8 overflow-auto" id="main-content">
-            <!-- Welcome Dashboard -->
-            <div class="dashboard-section active" id="dashboard">
-                <h2 class="text-2xl font-bold mb-6">Witaj w Panelu Zarządzania SalesDB</h2>
-                <p class="text-gray-600 mb-8">Wybierz moduł z menu po lewej stronie, aby rozpocząć wprowadzanie danych.</p>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Quick Stats -->
-                    <div class="bg-white p-6 rounded-lg shadow-md">
-                        <h3 class="text-lg font-semibold text-gray-700 mb-4">Statystyki Systemu</h3>
-                        <div class="space-y-4">
-                            <div class="flex justify-between">
-                                <span class="text-gray-600">Tabele SQL:</span>
-                                <span class="font-medium">13</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="text-gray-600">Kolekcje MongoDB:</span>
-                                <span class="font-medium">4</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="text-gray-600">Integracje Azure:</span>
-                                <span class="font-medium">3</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Recent Activity -->
-                    <div class="bg-white p-6 rounded-lg shadow-md">
-                        <h3 class="text-lg font-semibold text-gray-700 mb-4">Ostatnia Aktywność</h3>
-                        <ul class="space-y-3">
-                            <li class="text-sm text-gray-600">
-                                <i class="fas fa-plus-circle text-green-500 mr-2"></i>
-                                Dodano nowego klienta (15 min temu)
-                            </li>
-                            <li class="text-sm text-gray-600">
-                                <i class="fas fa-edit text-blue-500 mr-2"></i>
-                                Zaktualizowano produkt ID-2354 (1 godz temu)
-                            </li>
-                            <li class="text-sm text-gray-600">
-                                <i class="fas fa-sync text-orange-500 mr-2"></i>
-                                Synchronizacja z Azure (2 godz temu)
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <!-- Quick Actions -->
-                    <div class="bg-white p-6 rounded-lg shadow-md">
-                        <h3 class="text-lg font-semibold text-gray-700 mb-4">Szybkie Akcje</h3>
-                        <div class="grid grid-cols-2 gap-3">
-                            <button class="quick-action-btn" onclick="showSection('sql-sales')">
-                                <i class="fas fa-cart-plus mb-2"></i>
-                                <span>Nowe Zamówienie</span>
-                            </button>
-                            <button class="quick-action-btn" onclick="showSection('sql-banking')">
-                                <i class="fas fa-money-bill-wave mb-2"></i>
-                                <span>Transakcja</span>
-                            </button>
-                            <button class="quick-action-btn" onclick="showSection('sql-geo')">
-                                <i class="fas fa-map-marker-alt mb-2"></i>
-                                <span>Region</span>
-                            </button>
-                            <button class="quick-action-btn" onclick="showSection('mongo-purchase')">
-                                <i class="fas fa-shopping-bag mb-2"></i>
-                                <span>Historia</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- System Overview -->
-                <div class="mt-8 bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-lg font-semibold text-gray-700 mb-4">Przegląd Systemu Analitycznego</h3>
-                    <p class="text-gray-600 mb-4">System SalesDB umożliwia kompleksowe zarządzanie danymi dla globalnej korporacji e-commerce i bankowości.</p>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-                        <div class="border border-gray-200 rounded-lg p-4 text-center">
-                            <h4 class="font-medium text-gray-700 mb-2">MS SQL Server</h4>
-                            <p class="text-sm text-gray-600">Strukturyzowane dane sprzedażowe i bankowe przechowywane w relacyjnej bazie danych.</p>
-                        </div>
-                        <div class="border border-gray-200 rounded-lg p-4 text-center">
-                            <h4 class="font-medium text-gray-700 mb-2">MongoDB</h4>
-                            <p class="text-sm text-gray-600">Elastyczne struktury danych dla historii zakupów, logów transakcji i zachowań klientów.</p>
-                        </div>
-                        <div class="border border-gray-200 rounded-lg p-4 text-center">
-                            <h4 class="font-medium text-gray-700 mb-2">Azure</h4>
-                            <p class="text-sm text-gray-600">Integracja z chmurą dla analizy danych, przechowywania i przetwarzania w czasie rzeczywistym.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- SQL Server - Sales Module -->
-            <div class="dashboard-section" id="sql-sales">
-                <h2 class="text-2xl font-bold mb-6">Moduł Sprzedażowy (SQL)</h2>
-                
-                <div class="bg-white p-6 rounded-lg shadow-md mb-8">
-                    <div class="flex justify-between items-center mb-6">
-                        <h3 class="text-lg font-semibold text-gray-700">Wybierz Tabelę</h3>
-                    </div>
-                    
-                    <div class="flex space-x-2 mb-6">
-                        <button class="table-tab-btn active" data-table="customers">Klienci</button>
-                        <button class="table-tab-btn" data-table="products">Produkty</button>
-                        <button class="table-tab-btn" data-table="orders">Zamówienia</button>
-                        <button class="table-tab-btn" data-table="order-details">Szczegóły zamówień</button>
-                        <button class="table-tab-btn" data-table="categories">Kategorie</button>
-                        <button class="table-tab-btn" data-table="promotions">Promocje</button>
-                    </div>
-                    
-                    <!-- Customers Form -->
-                    <div class="table-form active" id="customers-form">
-                        <h4 class="font-medium text-gray-700 mb-4">Dodaj nowego klienta</h4>
-                        <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label class="block text-sm font-medium text-gray-600 mb-1">Imię</label>
-                                <input type="text" class="form-input" placeholder="np. Jan">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-600 mb-1">Nazwisko</label>
-                                <input type="text" class="form-input" placeholder="np. Kowalski">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-600 mb-1">Email</label>
-                                <input type="email" class="form-input" placeholder="np. jan@example.com">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-600 mb-1">Telefon</label>
-                                <input type="text" class="form-input" placeholder="np. +48 123 456 789">
-                            </div>
-                            <div class="md:col-span-2">
-                                <label class="block text-sm font-medium text-gray-600 mb-1">Adres</label>
-                                <textarea class="form-input" rows="2" placeholder="np. ul. Przykładowa 123, 00-001 Warszawa"></textarea>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-600 mb-1">Kraj</label>
-                                <select class="form-input">
-                                    <option value="">Wybierz kraj</option>
-                                    <option value="1">Polska</option>
-                                    <option value="2">Niemcy</option>
-                                    <option value="3">Francja</option>
-                                </select>
-                            </div>
-                            <div class="flex items-end">
-                                <button type="submit" class="submit-btn">
-                                    <i class="fas fa-save mr-2"></i>Zapisz klienta
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-
-                    <!-- Products Form -->
-                    <div class="table-form" id="products-form">
-                        <h4 class="font-medium text-gray-700 mb-4">Dodaj nowy produkt</h4>
-                        <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label class="block text-sm font-medium text-gray-600 mb-1">Nazwa produktu</label>
-                                <input type="text" class="form-input" placeholder="np. Laptop Dell XPS 13">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-600 mb-1">Kategoria</label>
-                                <select class="form-input">
-                                    <option value="">Wybierz kategorię</option>
-                                    <option value="1">Elektronika</option>
-                                    <option value="2">Meble</option>
-                                    <option value="3">Odzież</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-600 mb-1">Cena (PLN)</label>
-                                <input type="number" step="0.01" min="0" class="form-input" placeholder="np. 3999.99">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-600 mb-1">Cena zakupu (PLN)</label>
-                                <input type="number" step="0.01" min="0" class="form-input" placeholder="np. 2999.99">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-600 mb-1">Ilość na stanie</label>
-                                <input type="number" min="0" class="form-input" placeholder="np. 50">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-600 mb-1">Sprzedawca</label>
-                                <select class="form-input">
-                                    <option value="">Wybierz sprzedawcę</option>
-                                    <option value="1">Jan Kowalski</option>
-                                    <option value="2">Anna Nowak</option>
-                                    <option value="3">Piotr Wiśniewski</option>
-                                </select>
-                            </div>
-                            <div class="md:col-span-2">
-                                <label class="block text-sm font-medium text-gray-600 mb-1">Opis</label>
-                                <textarea class="form-input" rows="3" placeholder="np. Wysokiej jakości laptop z procesorem Intel Core i7..."></textarea>
-                            </div>
-                            <div class="flex items-end">
-                                <button type="submit" class="submit-btn">
-                                    <i class="fas fa-save mr-2"></i>Zapisz produkt
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                    
-                    <!-- Orders Form -->
-                    <div class="table-form" id="orders-form">
-                        <h4 class="font-medium text-gray-700 mb-4">Dodaj nowe zamówienie</h4>
-                        <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label class="block text-sm font-medium text-gray-600 mb-1">Klient</label>
-                                <select class="form-input">
-                                    <option value="">Wybierz klienta</option>
-                                    <option value="1">Jan Kowalski</option>
-                                    <option value="2">Anna Nowak</option>
-                                    <option value="3">Firma XYZ</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-600 mb-1">Sprzedawca</label>
-                                <select class="form-input">
-                                    <option value="">Wybierz sprzedawcę</option>
-                                    <option value="1">Jan Kowalski</option>
-                                    <option value="2">Anna Nowak</option>
-                                    <option value="3">Piotr Wiśniewski</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-600 mb-1">Data zamówienia</label>
-                                <input type="date" class="form-input">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-600 mb-1">Status</label>
-                                <select class="form-input">
-                                    <option value="new">Nowe</option>
-                                    <option value="processing">W trakcie realizacji</option>
-                                    <option value="shipped">Wysłane</option>
-                                    <option value="completed">Zrealizowane</option>
-                                    <option value="cancelled">Anulowane</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-600 mb-1">Metoda płatności</label>
-                                <select class="form-input">
-                                    <option value="card">Karta płatnicza</option>
-                                    <option value="bank-transfer">Przelew bankowy</option>
-                                    <option value="cash-on-delivery">Za pobraniem</option>
-                                    <option value="paypal">PayPal</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-600 mb-1">Kraj wysyłki</label>
-                                <select class="form-input">
-                                    <option value="">Wybierz kraj</option>
-                                    <option value="1">Polska</option>
-                                    <option value="2">Niemcy</option>
-                                    <option value="3">Francja</option>
-                                </select>
-                            </div>
-                            <div class="md:col-span-2">
-                                <label class="block text-sm font-medium text-gray-600 mb-1">Adres wysyłki</label>
-                                <textarea class="form-input" rows="2" placeholder="np. ul. Przykładowa 123, 00-001 Warszawa"></textarea>
-                            </div>
-                            <div class="flex items-end">
-                                <button type="submit" class="submit-btn">
-                                    <i class="fas fa-save mr-2"></i>Zapisz zamówienie
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                    
-                    <!-- Additional forms for other tables would be added here -->
-                    <div class="table-form" id="order-details-form">
-                        <h4 class="font-medium text-gray-700 mb-4">Dodaj szczegóły zamówienia</h4>
-                        <!-- Form contents -->
-                    </div>
-                    
-                    <div class="table-form" id="categories-form">
-                        <h4 class="font-medium text-gray-700 mb-4">Dodaj kategorię</h4>
-                        <!-- Form contents -->
-                    </div>
-                    
-                    <div class="table-form" id="promotions-form">
-                        <h4 class="font-medium text-gray-700 mb-4">Dodaj promocję</h4>
-                        <!-- Form contents -->
-                    </div>
-                </div>
-            </div>
-            
-            <!-- SQL Server - Banking Module -->
-            <div class="dashboard-section" id="sql-banking">
-                <h2 class="text-2xl font-bold mb-6">Moduł Bankowy (SQL)</h2>
-                
-                <div class="bg-white p-6 rounded-lg shadow-md mb-8">
-                    <div class="flex justify-between items-center mb-6">
-                        <h3 class="text-lg font-semibold text-gray-700">Operacje Bankowe</h3>
-                    </div>
-                    
-                    <div class="flex space-x-2 mb-6">
-                        <button class="table-tab-btn active" data-table="accounts">Konta bankowe</button>
-                        <button class="table-tab-btn" data-table="transactions">Transakcje</button>
-                    </div>
-                    
-                    <!-- Bank Accounts Form -->
-                    <div class="table-form active" id="accounts-form">
-                        <h4 class="font-medium text-gray-700 mb-4">Dodaj nowe konto bankowe</h4>
-                        <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label class="block text-sm font-medium text-gray-600 mb-1">Numer konta</label>
-                                <input type="text" class="form-input" placeholder="np. 12 3456 7890 1234 5678 9012 3456">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-600 mb-1">Nazwa banku</label>
-                                <input type="text" class="form-input" placeholder="np. Bank Polski">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-600 mb-1">Waluta</label>
-                                <select class="form-input">
-                                    <option value="PLN">PLN</option>
-                                    <option value="EUR">EUR</option>
-                                    <option value="USD">USD</option>
-                                    <option value="GBP">GBP</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-600 mb-1">Saldo początkowe</label>
-                                <input type="number" step="0.01" class="form-input" placeholder="np. 10000.00">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-600 mb-1">Typ konta</label>
-                                <select class="form-input">
-                                    <option value="checking">Rozliczeniowe</option>
-                                    <option value="savings">Oszczędnościowe</option>
-                                    <option value="business">Firmowe</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-600 mb-1">Właściciel (Sprzedawca)</label>
-                                <select class="form-input">
-                                    <option value="">Wybierz sprzedawcę</option>
-                                    <option value="1">Jan Kowalski</option>
-                                    <option value="2">Anna Nowak</option>
-                                    <option value="3">Piotr Wiśniewski</option>
-                                </select>
-                            </div>
-                            <div class="flex items-end">
-                                <button type="submit" class="submit-btn">
-                                    <i class="fas fa-save mr-2"></i>Zapisz konto
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                    
-                    <!-- Bank Transactions Form -->
-                    <div class="table-form" id="transactions-form">
-                        <h4 class="font-medium text-gray-700 mb-4">Dodaj nową transakcję</h4>
-                        <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label class="block text-sm font-medium text-gray-600 mb-1">Konto</label>
-                                <select class="form-input">
-                                    <option value="">Wybierz konto bankowe</option>
-                                    <option value="1">12 3456... - Bank Polski (PLN)</option>
-                                    <option value="2">98 7654... - Bank Niemiecki (EUR)</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-600 mb-1">Data transakcji</label>
-                                <input type="date" class="form-input">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-600 mb-1">Kwota</label>
-                                <input type="number" step="0.01" class="form-input" placeholder="np. 1500.00">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-600 mb-1">Typ transakcji</label>
-                                <select class="form-input">
-                                    <option value="deposit">Wpłata</option>
-                                    <option value="withdrawal">Wypłata</option>
-                                    <option value="transfer">Przelew</option>
-                                    <option value="payment">Płatność</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-600 mb-1">Kontrahent</label>
-                                <input type="text" class="form-input" placeholder="np. Firma XYZ">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-600 mb-1">Numer referencyjny</label>
-                                <input type="text" class="form-input" placeholder="np. REF/2025/12345">
-                            </div>
-                            <div class="md:col-span-2">
-                                <label class="block text-sm font-medium text-gray-600 mb-1">Opis</label>
-                                <textarea class="form-input" rows="2" placeholder="np. Płatność za usługi marketingowe"></textarea>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-600 mb-1">Sprzedawca</label>
-                                <select class="form-input">
-                                    <option value="">Wybierz sprzedawcę</option>
-                                    <option value="1">Jan Kowalski</option>
-                                    <option value="2">Anna Nowak</option>
-                                    <option value="3">Piotr Wiśniewski</option>
-                                </select>
-                            </div>
-                            <div class="flex items-end">
-                                <button type="submit" class="submit-btn">
-                                    <i class="fas fa-save mr-2"></i>Zapisz transakcję
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- SQL Server - Geographic Module -->
-            <div class="dashboard-section" id="sql-geo">
-                <h2 class="text-2xl font-bold mb-6">Moduł Geograficzny (SQL)</h2>
-                
-                <div class="bg-white p-6 rounded-lg shadow-md mb-8">
-                    <div class="flex justify-between items-center mb-6">
-                        <h3 class="text-lg font-semibold text-gray-700">Zarządzanie Danymi Geograficznymi</h3>
-                    </div>
-                    
-                    <div class="flex space-x-2 mb-6">
-                        <button class="table-tab-btn active" data-table="countries">Kraje</button>
-                        <button class="table-tab-btn" data-table="regions">Regiony</button>
-                    </div>
-                    
-                    <!-- Countries Form -->
-                    <div class="table-form active" id="countries-form">
-                        <h4 class="font-medium text-gray-700 mb-4">Dodaj nowy kraj</h4>
-                        <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label class="block text-sm font-medium text-gray-600 mb-1">Nazwa kraju</label>
-                                <input type="text" class="form-input" placeholder="np. Polska">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-600 mb-1">Kontynent</label>
-                                <select class="form-input">
-                                    <option value="Europa">Europa</option>
-                                    <option value="Azja">Azja</option>
-                                    <option value="Ameryka Północna">Ameryka Północna</option>
-                                    <option value="Ameryka Południowa">Ameryka Południowa</option>
-                                    <option value="Afryka">Afryka</option>
-                                    <option value="Australia i Oceania">Australia i Oceania</option>
-                                    <option value="Antarktyda">Antarktyda</option>
-                                </select>
-                            </div>
-                            <div class="flex items-end">
-                                <button type="submit" class="submit-btn">
-                                    <i class="fas fa-save mr-2"></i>Zapisz kraj
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                    
-                    <!-- Regions Form -->
-                    <div class="table-form" id="regions-form">
-                        <h4 class="font-medium text-gray-700 mb-4">Dodaj nowy region</h4>
-                        <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label class="block text-sm font-medium text-gray-600 mb-1">Nazwa regionu</label>
-                                <input type="text" class="form-input" placeholder="np. Mazowieckie">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-600 mb-1">Kraj</label>
-                                <select class="form-input">
-                                    <option value="">Wybierz kraj</option>
-                                    <option value="1">Polska</option>
-                                    <option value="2">Niemcy</option>
-                                    <option value="3">Francja</option>
-                                </select>
-                            </div>
-                            <div class="flex items-end">
-                                <button type="submit" class="submit-btn">
-                                    <i class="fas fa-save mr-2"></i>Zapisz region
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-            <!-- MongoDB Sections -->
-            <div class="dashboard-section" id="mongo-purchase">
-                <h2 class="text-2xl font-bold mb-6">Historie Zakupów (MongoDB)</h2>
-                
-                <div class="bg-white p-6 rounded-lg shadow-md mb-8">
-                    <h3 class="text-lg font-semibold text-gray-700 mb-4">Dodaj historię zakupów</h3>
-                    
-                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6">
-                        <div class="flex">
-                            <div class="flex-shrink-0">
-                                <i class="fas fa-info-circle text-yellow-600"></i>
-                            </div>
-                            <div class="ml-3">
-                                <p class="text-sm text-yellow-700">
-                                    Dokument historie zakupów zawiera złożone dane o wszystkich zakupach klienta. Dodaj podstawowe dane poniżej lub zaimportuj pełny dokument JSON.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <form class="space-y-6">
-                        <!-- Basic information -->
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label class="block text-sm font-medium text-gray-600 mb-1">ID Klienta</label>
-                                <input type="number" class="form-input" placeholder="np. 1234">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-600 mb-1">Email</label>
-                                <input type="email" class="form-input" placeholder="np. jan@example.com">
-                            </div>
-                        </div>
-                        
-                        <!-- Purchase details -->
-                        <div class="border-t border-gray-200 pt-6">
-                            <h4 class="font-medium text-gray-700 mb-4">Zakup</h4>
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-600 mb-1">ID Zamówienia</label>
-                                    <input type="number" class="form-input" placeholder="np. 5678">
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-600 mb-1">Data zamówienia</label>
-                                    <input type="date" class="form-input">
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-600 mb-1">Kwota całkowita</label>
-                                    <input type="number" step="0.01" class="form-input" placeholder="np. 499.99">
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-600 mb-1">Status</label>
-                                    <select class="form-input">
-                                        <option value="completed">Zrealizowane</option>
-                                        <option value="processing">W trakcie</option>
-                                        <option value="shipped">Wysłane</option>
-                                        <option value="cancelled">Anulowane</option>
-                                    </select>
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-600 mb-1">Metoda płatności</label>
-                                    <select class="form-input">
-                                        <option value="card">Karta płatnicza</option>
-                                        <option value="bank-transfer">Przelew bankowy</option>
-                                        <option value="cash-on-delivery">Za pobraniem</option>
-                                        <option value="paypal">PayPal</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Seller information -->
-                        <div class="border-t border-gray-200 pt-6">
-                            <h4 class="font-medium text-gray-700 mb-4">Informacje o sprzedawcy</h4>
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-600 mb-1">ID Sprzedawcy</label>
-                                    <input type="number" class="form-input" placeholder="np. 123">
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-600 mb-1">Nazwa sprzedawcy</label>
-                                    <input type="text" class="form-input" placeholder="np. Jan Kowalski">
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-600 mb-1">Typ sprzedawcy</label>
-                                    <select class="form-input">
-                                        <option value="individual">Indywidualny</option>
-                                        <option value="company">Firma</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- or upload JSON -->
-                        <div class="border-t border-gray-200 pt-6">
-                            <h4 class="font-medium text-gray-700 mb-4">Alternatywnie: Prześlij dokument JSON</h4>
-                            <div class="flex items-center space-x-3">
-                                <input type="file" class="text-sm text-gray-600 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
-                            </div>
-                        </div>
-
-                        <div class="flex justify-end">
-                            <button type="submit" class="submit-btn">
-                                <i class="fas fa-save mr-2"></i>Zapisz historię zakupów
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            
-            <!-- More MongoDB sections would go here -->
+        <!-- MongoDB Section -->
+        <div class="mb-6">
+          <h3 class="uppercase text-xs text-gray-400 font-semibold mb-2">
+            MongoDB
+          </h3>
+          <ul class="space-y-2">
+            <li>
+              <a href="#mongo-purchase" class="sidebar-link">
+                <i class="fas fa-history mr-2"></i>Historie Zakupów
+              </a>
+            </li>
+            <li>
+              <a href="#mongo-transactions" class="sidebar-link">
+                <i class="fas fa-exchange-alt mr-2"></i>Logi Transakcji
+              </a>
+            </li>
+            <li>
+              <a href="#mongo-behavior" class="sidebar-link">
+                <i class="fas fa-chart-line mr-2"></i>Zachowania Klientów
+              </a>
+            </li>
+            <li>
+              <a href="#mongo-profiles" class="sidebar-link">
+                <i class="fas fa-id-card mr-2"></i>Profile Sprzedawców
+              </a>
+            </li>
+          </ul>
         </div>
+
+        <!-- Azure Section -->
+        <div class="mb-6">
+          <h3 class="uppercase text-xs text-gray-400 font-semibold mb-2">
+            Azure
+          </h3>
+          <ul class="space-y-2">
+            <li>
+              <a href="#azure-storage" class="sidebar-link">
+                <i class="fas fa-database mr-2"></i>Azure Storage
+              </a>
+            </li>
+            <li>
+              <a href="#azure-data-factory" class="sidebar-link">
+                <i class="fas fa-cogs mr-2"></i>Data Factory
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Main Content Area -->
+      <div class="flex-1 p-8 overflow-auto" id="main-content">
+        <!-- Welcome Dashboard -->
+        <div class="dashboard-section active" id="dashboard">
+          <h2 class="text-2xl font-bold mb-6">
+            Witaj w Panelu Zarządzania GlobalVista
+          </h2>
+          <p class="text-gray-600 mb-8">
+            Wybierz moduł z menu po lewej stronie, aby rozpocząć wprowadzanie
+            danych.
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Quick Stats -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+              <h3 class="text-lg font-semibold text-gray-700 mb-4">
+                Statystyki Systemu
+              </h3>
+              <div class="space-y-4">
+                <div class="flex justify-between">
+                  <span class="text-gray-600">Tabele SQL:</span>
+                  <span class="font-medium">13</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-gray-600">Kolekcje MongoDB:</span>
+                  <span class="font-medium">4</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-gray-600">Integracje Azure:</span>
+                  <span class="font-medium">3</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+              <h3 class="text-lg font-semibold text-gray-700 mb-4">
+                Ostatnia Aktywność
+              </h3>
+              <ul class="space-y-3">
+                <li class="text-sm text-gray-600">
+                  <i class="fas fa-plus-circle text-green-500 mr-2"></i>
+                  Dodano nowego klienta (15 min temu)
+                </li>
+                <li class="text-sm text-gray-600">
+                  <i class="fas fa-edit text-blue-500 mr-2"></i>
+                  Zaktualizowano produkt ID-2354 (1 godz temu)
+                </li>
+                <li class="text-sm text-gray-600">
+                  <i class="fas fa-sync text-orange-500 mr-2"></i>
+                  Synchronizacja z Azure (2 godz temu)
+                </li>
+              </ul>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+              <h3 class="text-lg font-semibold text-gray-700 mb-4">
+                Szybkie Akcje
+              </h3>
+              <div class="grid grid-cols-2 gap-3">
+                <button
+                  class="quick-action-btn"
+                  onclick="showSection('sql-sales')">
+                  <i class="fas fa-cart-plus mb-2"></i>
+                  <span>Nowe Zamówienie</span>
+                </button>
+                <button
+                  class="quick-action-btn"
+                  onclick="showSection('sql-banking')">
+                  <i class="fas fa-money-bill-wave mb-2"></i>
+                  <span>Transakcja</span>
+                </button>
+                <button
+                  class="quick-action-btn"
+                  onclick="showSection('sql-geo')">
+                  <i class="fas fa-map-marker-alt mb-2"></i>
+                  <span>Region</span>
+                </button>
+                <button
+                  class="quick-action-btn"
+                  onclick="showSection('mongo-purchase')">
+                  <i class="fas fa-shopping-bag mb-2"></i>
+                  <span>Historia</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- System Overview -->
+          <div class="mt-8 bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-lg font-semibold text-gray-700 mb-4">
+              Przegląd Systemu Analitycznego
+            </h3>
+            <p class="text-gray-600 mb-4">
+              System GlobalVista umożliwia kompleksowe zarządzanie danymi dla
+              globalnej korporacji e-commerce i bankowości.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+              <div class="border border-gray-200 rounded-lg p-4 text-center">
+                <h4 class="font-medium text-gray-700 mb-2">MS SQL Server</h4>
+                <p class="text-sm text-gray-600">
+                  Strukturyzowane dane sprzedażowe i bankowe przechowywane w
+                  relacyjnej bazie danych.
+                </p>
+              </div>
+              <div class="border border-gray-200 rounded-lg p-4 text-center">
+                <h4 class="font-medium text-gray-700 mb-2">MongoDB</h4>
+                <p class="text-sm text-gray-600">
+                  Elastyczne struktury danych dla historii zakupów, logów
+                  transakcji i zachowań klientów.
+                </p>
+              </div>
+              <div class="border border-gray-200 rounded-lg p-4 text-center">
+                <h4 class="font-medium text-gray-700 mb-2">Azure</h4>
+                <p class="text-sm text-gray-600">
+                  Integracja z chmurą dla analizy danych, przechowywania i
+                  przetwarzania w czasie rzeczywistym.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SQL Server - Sales Module -->
+        <div class="dashboard-section" id="sql-sales">
+          <h2 class="text-2xl font-bold mb-6">Moduł Sprzedażowy (SQL)</h2>
+
+          <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <div class="flex justify-between items-center mb-6">
+              <h3 class="text-lg font-semibold text-gray-700">
+                Wybierz Tabelę
+              </h3>
+            </div>
+
+            <div class="flex space-x-2 mb-6">
+              <button class="table-tab-btn active" data-table="customers">
+                Klienci
+              </button>
+              <button class="table-tab-btn" data-table="products">
+                Produkty
+              </button>
+              <button class="table-tab-btn" data-table="orders">
+                Zamówienia
+              </button>
+              <button class="table-tab-btn" data-table="order-details">
+                Szczegóły zamówień
+              </button>
+              <button class="table-tab-btn" data-table="categories">
+                Kategorie
+              </button>
+              <button class="table-tab-btn" data-table="promotions">
+                Promocje
+              </button>
+            </div>
+
+            <!-- Customers Form -->
+            <div class="table-form active" id="customers-form">
+              <h4 class="font-medium text-gray-700 mb-4">
+                Dodaj nowego klienta
+              </h4>
+              <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Imię</label
+                  >
+                  <input type="text" class="form-input" placeholder="np. Jan" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Nazwisko</label
+                  >
+                  <input
+                    type="text"
+                    class="form-input"
+                    placeholder="np. Kowalski" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Email</label
+                  >
+                  <input
+                    type="email"
+                    class="form-input"
+                    placeholder="np. jan@example.com" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Telefon</label
+                  >
+                  <input
+                    type="text"
+                    class="form-input"
+                    placeholder="np. +48 123 456 789" />
+                </div>
+                <div class="md:col-span-2">
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Adres</label
+                  >
+                  <textarea
+                    class="form-input"
+                    rows="2"
+                    placeholder="np. ul. Przykładowa 123, 00-001 Warszawa"></textarea>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Kraj</label
+                  >
+                  <select class="form-input">
+                    <option value="">Wybierz kraj</option>
+                    <option value="1">Polska</option>
+                    <option value="2">Niemcy</option>
+                    <option value="3">Francja</option>
+                  </select>
+                </div>
+                <div class="flex items-end">
+                  <button type="submit" class="submit-btn">
+                    <i class="fas fa-save mr-2"></i>Zapisz klienta
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <!-- Products Form -->
+            <div class="table-form" id="products-form">
+              <h4 class="font-medium text-gray-700 mb-4">Dodaj nowy produkt</h4>
+              <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Nazwa produktu</label
+                  >
+                  <input
+                    type="text"
+                    class="form-input"
+                    placeholder="np. Laptop Dell XPS 13" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Kategoria</label
+                  >
+                  <select class="form-input">
+                    <option value="">Wybierz kategorię</option>
+                    <option value="1">Elektronika</option>
+                    <option value="2">Meble</option>
+                    <option value="3">Odzież</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Cena (PLN)</label
+                  >
+                  <input
+                    type="number"
+                    step="0.01"
+                    min="0"
+                    class="form-input"
+                    placeholder="np. 3999.99" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Cena zakupu (PLN)</label
+                  >
+                  <input
+                    type="number"
+                    step="0.01"
+                    min="0"
+                    class="form-input"
+                    placeholder="np. 2999.99" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Ilość na stanie</label
+                  >
+                  <input
+                    type="number"
+                    min="0"
+                    class="form-input"
+                    placeholder="np. 50" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Sprzedawca</label
+                  >
+                  <select class="form-input">
+                    <option value="">Wybierz sprzedawcę</option>
+                    <option value="1">Jan Kowalski</option>
+                    <option value="2">Anna Nowak</option>
+                    <option value="3">Piotr Wiśniewski</option>
+                  </select>
+                </div>
+                <div class="md:col-span-2">
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Opis</label
+                  >
+                  <textarea
+                    class="form-input"
+                    rows="3"
+                    placeholder="np. Wysokiej jakości laptop z procesorem Intel Core i7..."></textarea>
+                </div>
+                <div class="flex items-end">
+                  <button type="submit" class="submit-btn">
+                    <i class="fas fa-save mr-2"></i>Zapisz produkt
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <!-- Orders Form -->
+            <div class="table-form" id="orders-form">
+              <h4 class="font-medium text-gray-700 mb-4">
+                Dodaj nowe zamówienie
+              </h4>
+              <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Klient</label
+                  >
+                  <select class="form-input">
+                    <option value="">Wybierz klienta</option>
+                    <option value="1">Jan Kowalski</option>
+                    <option value="2">Anna Nowak</option>
+                    <option value="3">Firma XYZ</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Sprzedawca</label
+                  >
+                  <select class="form-input">
+                    <option value="">Wybierz sprzedawcę</option>
+                    <option value="1">Jan Kowalski</option>
+                    <option value="2">Anna Nowak</option>
+                    <option value="3">Piotr Wiśniewski</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Data zamówienia</label
+                  >
+                  <input type="date" class="form-input" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Status</label
+                  >
+                  <select class="form-input">
+                    <option value="new">Nowe</option>
+                    <option value="processing">W trakcie realizacji</option>
+                    <option value="shipped">Wysłane</option>
+                    <option value="completed">Zrealizowane</option>
+                    <option value="cancelled">Anulowane</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Metoda płatności</label
+                  >
+                  <select class="form-input">
+                    <option value="card">Karta płatnicza</option>
+                    <option value="bank-transfer">Przelew bankowy</option>
+                    <option value="cash-on-delivery">Za pobraniem</option>
+                    <option value="paypal">PayPal</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Kraj wysyłki</label
+                  >
+                  <select class="form-input">
+                    <option value="">Wybierz kraj</option>
+                    <option value="1">Polska</option>
+                    <option value="2">Niemcy</option>
+                    <option value="3">Francja</option>
+                  </select>
+                </div>
+                <div class="md:col-span-2">
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Adres wysyłki</label
+                  >
+                  <textarea
+                    class="form-input"
+                    rows="2"
+                    placeholder="np. ul. Przykładowa 123, 00-001 Warszawa"></textarea>
+                </div>
+                <div class="flex items-end">
+                  <button type="submit" class="submit-btn">
+                    <i class="fas fa-save mr-2"></i>Zapisz zamówienie
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <!-- Additional forms for other tables would be added here -->
+            <div class="table-form" id="order-details-form">
+              <h4 class="font-medium text-gray-700 mb-4">
+                Dodaj szczegóły zamówienia
+              </h4>
+              <!-- Form contents -->
+            </div>
+
+            <div class="table-form" id="categories-form">
+              <h4 class="font-medium text-gray-700 mb-4">Dodaj kategorię</h4>
+              <!-- Form contents -->
+            </div>
+
+            <div class="table-form" id="promotions-form">
+              <h4 class="font-medium text-gray-700 mb-4">Dodaj promocję</h4>
+              <!-- Form contents -->
+            </div>
+          </div>
+        </div>
+
+        <!-- SQL Server - Banking Module -->
+        <div class="dashboard-section" id="sql-banking">
+          <h2 class="text-2xl font-bold mb-6">Moduł Bankowy (SQL)</h2>
+
+          <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <div class="flex justify-between items-center mb-6">
+              <h3 class="text-lg font-semibold text-gray-700">
+                Operacje Bankowe
+              </h3>
+            </div>
+
+            <div class="flex space-x-2 mb-6">
+              <button class="table-tab-btn active" data-table="accounts">
+                Konta bankowe
+              </button>
+              <button class="table-tab-btn" data-table="transactions">
+                Transakcje
+              </button>
+            </div>
+
+            <!-- Bank Accounts Form -->
+            <div class="table-form active" id="accounts-form">
+              <h4 class="font-medium text-gray-700 mb-4">
+                Dodaj nowe konto bankowe
+              </h4>
+              <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Numer konta</label
+                  >
+                  <input
+                    type="text"
+                    class="form-input"
+                    placeholder="np. 12 3456 7890 1234 5678 9012 3456" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Nazwa banku</label
+                  >
+                  <input
+                    type="text"
+                    class="form-input"
+                    placeholder="np. Bank Polski" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Waluta</label
+                  >
+                  <select class="form-input">
+                    <option value="PLN">PLN</option>
+                    <option value="EUR">EUR</option>
+                    <option value="USD">USD</option>
+                    <option value="GBP">GBP</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Saldo początkowe</label
+                  >
+                  <input
+                    type="number"
+                    step="0.01"
+                    class="form-input"
+                    placeholder="np. 10000.00" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Typ konta</label
+                  >
+                  <select class="form-input">
+                    <option value="checking">Rozliczeniowe</option>
+                    <option value="savings">Oszczędnościowe</option>
+                    <option value="business">Firmowe</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Właściciel (Sprzedawca)</label
+                  >
+                  <select class="form-input">
+                    <option value="">Wybierz sprzedawcę</option>
+                    <option value="1">Jan Kowalski</option>
+                    <option value="2">Anna Nowak</option>
+                    <option value="3">Piotr Wiśniewski</option>
+                  </select>
+                </div>
+                <div class="flex items-end">
+                  <button type="submit" class="submit-btn">
+                    <i class="fas fa-save mr-2"></i>Zapisz konto
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <!-- Bank Transactions Form -->
+            <div class="table-form" id="transactions-form">
+              <h4 class="font-medium text-gray-700 mb-4">
+                Dodaj nową transakcję
+              </h4>
+              <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Konto</label
+                  >
+                  <select class="form-input">
+                    <option value="">Wybierz konto bankowe</option>
+                    <option value="1">12 3456... - Bank Polski (PLN)</option>
+                    <option value="2">98 7654... - Bank Niemiecki (EUR)</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Data transakcji</label
+                  >
+                  <input type="date" class="form-input" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Kwota</label
+                  >
+                  <input
+                    type="number"
+                    step="0.01"
+                    class="form-input"
+                    placeholder="np. 1500.00" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Typ transakcji</label
+                  >
+                  <select class="form-input">
+                    <option value="deposit">Wpłata</option>
+                    <option value="withdrawal">Wypłata</option>
+                    <option value="transfer">Przelew</option>
+                    <option value="payment">Płatność</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Kontrahent</label
+                  >
+                  <input
+                    type="text"
+                    class="form-input"
+                    placeholder="np. Firma XYZ" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Numer referencyjny</label
+                  >
+                  <input
+                    type="text"
+                    class="form-input"
+                    placeholder="np. REF/2025/12345" />
+                </div>
+                <div class="md:col-span-2">
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Opis</label
+                  >
+                  <textarea
+                    class="form-input"
+                    rows="2"
+                    placeholder="np. Płatność za usługi marketingowe"></textarea>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Sprzedawca</label
+                  >
+                  <select class="form-input">
+                    <option value="">Wybierz sprzedawcę</option>
+                    <option value="1">Jan Kowalski</option>
+                    <option value="2">Anna Nowak</option>
+                    <option value="3">Piotr Wiśniewski</option>
+                  </select>
+                </div>
+                <div class="flex items-end">
+                  <button type="submit" class="submit-btn">
+                    <i class="fas fa-save mr-2"></i>Zapisz transakcję
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- SQL Server - Geographic Module -->
+        <div class="dashboard-section" id="sql-geo">
+          <h2 class="text-2xl font-bold mb-6">Moduł Geograficzny (SQL)</h2>
+
+          <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <div class="flex justify-between items-center mb-6">
+              <h3 class="text-lg font-semibold text-gray-700">
+                Zarządzanie Danymi Geograficznymi
+              </h3>
+            </div>
+
+            <div class="flex space-x-2 mb-6">
+              <button class="table-tab-btn active" data-table="countries">
+                Kraje
+              </button>
+              <button class="table-tab-btn" data-table="regions">
+                Regiony
+              </button>
+            </div>
+
+            <!-- Countries Form -->
+            <div class="table-form active" id="countries-form">
+              <h4 class="font-medium text-gray-700 mb-4">Dodaj nowy kraj</h4>
+              <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Nazwa kraju</label
+                  >
+                  <input
+                    type="text"
+                    class="form-input"
+                    placeholder="np. Polska" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Kontynent</label
+                  >
+                  <select class="form-input">
+                    <option value="Europa">Europa</option>
+                    <option value="Azja">Azja</option>
+                    <option value="Ameryka Północna">Ameryka Północna</option>
+                    <option value="Ameryka Południowa">
+                      Ameryka Południowa
+                    </option>
+                    <option value="Afryka">Afryka</option>
+                    <option value="Australia i Oceania">
+                      Australia i Oceania
+                    </option>
+                    <option value="Antarktyda">Antarktyda</option>
+                  </select>
+                </div>
+                <div class="flex items-end">
+                  <button type="submit" class="submit-btn">
+                    <i class="fas fa-save mr-2"></i>Zapisz kraj
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <!-- Regions Form -->
+            <div class="table-form" id="regions-form">
+              <h4 class="font-medium text-gray-700 mb-4">Dodaj nowy region</h4>
+              <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Nazwa regionu</label
+                  >
+                  <input
+                    type="text"
+                    class="form-input"
+                    placeholder="np. Mazowieckie" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Kraj</label
+                  >
+                  <select class="form-input">
+                    <option value="">Wybierz kraj</option>
+                    <option value="1">Polska</option>
+                    <option value="2">Niemcy</option>
+                    <option value="3">Francja</option>
+                  </select>
+                </div>
+                <div class="flex items-end">
+                  <button type="submit" class="submit-btn">
+                    <i class="fas fa-save mr-2"></i>Zapisz region
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- MongoDB Sections -->
+        <div class="dashboard-section" id="mongo-purchase">
+          <h2 class="text-2xl font-bold mb-6">Historie Zakupów (MongoDB)</h2>
+
+          <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <h3 class="text-lg font-semibold text-gray-700 mb-4">
+              Dodaj historię zakupów
+            </h3>
+
+            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6">
+              <div class="flex">
+                <div class="flex-shrink-0">
+                  <i class="fas fa-info-circle text-yellow-600"></i>
+                </div>
+                <div class="ml-3">
+                  <p class="text-sm text-yellow-700">
+                    Dokument historie zakupów zawiera złożone dane o wszystkich
+                    zakupach klienta. Dodaj podstawowe dane poniżej lub
+                    zaimportuj pełny dokument JSON.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <form class="space-y-6">
+              <!-- Basic information -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >ID Klienta</label
+                  >
+                  <input
+                    type="number"
+                    class="form-input"
+                    placeholder="np. 1234" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Email</label
+                  >
+                  <input
+                    type="email"
+                    class="form-input"
+                    placeholder="np. jan@example.com" />
+                </div>
+              </div>
+
+              <!-- Purchase details -->
+              <div class="border-t border-gray-200 pt-6">
+                <h4 class="font-medium text-gray-700 mb-4">Zakup</h4>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >ID Zamówienia</label
+                    >
+                    <input
+                      type="number"
+                      class="form-input"
+                      placeholder="np. 5678" />
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Data zamówienia</label
+                    >
+                    <input type="date" class="form-input" />
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Kwota całkowita</label
+                    >
+                    <input
+                      type="number"
+                      step="0.01"
+                      class="form-input"
+                      placeholder="np. 499.99" />
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Status</label
+                    >
+                    <select class="form-input">
+                      <option value="completed">Zrealizowane</option>
+                      <option value="processing">W trakcie</option>
+                      <option value="shipped">Wysłane</option>
+                      <option value="cancelled">Anulowane</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Metoda płatności</label
+                    >
+                    <select class="form-input">
+                      <option value="card">Karta płatnicza</option>
+                      <option value="bank-transfer">Przelew bankowy</option>
+                      <option value="cash-on-delivery">Za pobraniem</option>
+                      <option value="paypal">PayPal</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Seller information -->
+              <div class="border-t border-gray-200 pt-6">
+                <h4 class="font-medium text-gray-700 mb-4">
+                  Informacje o sprzedawcy
+                </h4>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >ID Sprzedawcy</label
+                    >
+                    <input
+                      type="number"
+                      class="form-input"
+                      placeholder="np. 123" />
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Nazwa sprzedawcy</label
+                    >
+                    <input
+                      type="text"
+                      class="form-input"
+                      placeholder="np. Jan Kowalski" />
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Typ sprzedawcy</label
+                    >
+                    <select class="form-input">
+                      <option value="individual">Indywidualny</option>
+                      <option value="company">Firma</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- or upload JSON -->
+              <div class="border-t border-gray-200 pt-6">
+                <h4 class="font-medium text-gray-700 mb-4">
+                  Alternatywnie: Prześlij dokument JSON
+                </h4>
+                <div class="flex items-center space-x-3">
+                  <input
+                    type="file"
+                    class="text-sm text-gray-600 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" />
+                </div>
+              </div>
+
+              <div class="flex justify-end">
+                <button type="submit" class="submit-btn">
+                  <i class="fas fa-save mr-2"></i>Zapisz historię zakupów
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- More MongoDB sections would go here -->
+      </div>
     </div>
 
     <!-- Help Modal -->
-    <div id="helpModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
-        <div class="bg-white rounded-lg p-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto">
-            <div class="flex justify-between items-center mb-6">
-                <h3 class="text-xl font-bold text-gray-800">Pomoc - Panel zarządzania SalesDB</h3>
-                <button id="closeHelpBtn" class="text-gray-500 hover:text-gray-700">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            
-            <div class="space-y-6">
-                <div>
-                    <h4 class="font-medium text-lg text-gray-700 mb-2">Struktura panelu</h4>
-                    <p class="text-gray-600">Panel zarządzania SalesDB pozwala na wprowadzanie danych do różnych modułów systemu analitycznego. Wybierz odpowiednią sekcję z menu po lewej stronie.</p>
-                </div>
-                
-                <div>
-                    <h4 class="font-medium text-lg text-gray-700 mb-2">SQL Server</h4>
-                    <p class="text-gray-600">W tej sekcji możesz wprowadzać dane strukturalne do relacyjnej bazy danych MS SQL Server. Dostępne moduły:</p>
-                    <ul class="list-disc list-inside mt-2 ml-4 text-gray-600">
-                        <li>Moduł Sprzedażowy - zarządzanie produktami, klientami, zamówieniami</li>
-                        <li>Moduł Bankowy - zarządzanie kontami i transakcjami bankowymi</li>
-                        <li>Moduł Geograficzny - zarządzanie krajami i regionami</li>
-                        <li>Sprzedawcy - zarządzanie profilami sprzedawców</li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="font-medium text-lg text-gray-700 mb-2">MongoDB</h4>
-                    <p class="text-gray-600">Ta sekcja pozwala na zarządzanie elastycznymi strukturami danych w MongoDB. Dostępne kolekcje:</p>
-                    <ul class="list-disc list-inside mt-2 ml-4 text-gray-600">
-                        <li>Historie Zakupów - kompleksowe dane o historii zakupów klientów</li>
-                        <li>Logi Transakcji - szczegółowe logi transakcji bankowych</li>
-                        <li>Zachowania Klientów - analiza aktywności i zachowań klientów</li>
-                        <li>Profile Sprzedawców - rozszerzone profile sprzedawców z danymi sprzedażowymi</li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="font-medium text-lg text-gray-700 mb-2">Azure</h4>
-                    <p class="text-gray-600">W tej sekcji możesz zarządzać integracjami z usługami chmurowymi Azure:</p>
-                    <ul class="list-disc list-inside mt-2 ml-4 text-gray-600">
-                        <li>Azure Storage - zarządzanie przechowywaniem danych</li>
-                        <li>Data Factory - konfiguracja przepływów przetwarzania danych</li>
-                    </ul>
-                </div>
-                
-                <div class="border-t border-gray-200 pt-4">
-                    <p class="text-gray-500 text-sm">Potrzebujesz więcej pomocy? Skontaktuj się z administratorem systemu.</p>
-                </div>
-            </div>
+    <div
+      id="helpModal"
+      class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+      <div
+        class="bg-white rounded-lg p-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto">
+        <div class="flex justify-between items-center mb-6">
+          <h3 class="text-xl font-bold text-gray-800">
+            Pomoc - Panel zarządzania GlobalVista
+          </h3>
+          <button id="closeHelpBtn" class="text-gray-500 hover:text-gray-700">
+            <i class="fas fa-times"></i>
+          </button>
         </div>
+
+        <div class="space-y-6">
+          <div>
+            <h4 class="font-medium text-lg text-gray-700 mb-2">
+              Struktura panelu
+            </h4>
+            <p class="text-gray-600">
+              Panel zarządzania GlobalVista pozwala na wprowadzanie danych do
+              różnych modułów systemu analitycznego. Wybierz odpowiednią sekcję
+              z menu po lewej stronie.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="font-medium text-lg text-gray-700 mb-2">SQL Server</h4>
+            <p class="text-gray-600">
+              W tej sekcji możesz wprowadzać dane strukturalne do relacyjnej
+              bazy danych MS SQL Server. Dostępne moduły:
+            </p>
+            <ul class="list-disc list-inside mt-2 ml-4 text-gray-600">
+              <li>
+                Moduł Sprzedażowy - zarządzanie produktami, klientami,
+                zamówieniami
+              </li>
+              <li>
+                Moduł Bankowy - zarządzanie kontami i transakcjami bankowymi
+              </li>
+              <li>Moduł Geograficzny - zarządzanie krajami i regionami</li>
+              <li>Sprzedawcy - zarządzanie profilami sprzedawców</li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-medium text-lg text-gray-700 mb-2">MongoDB</h4>
+            <p class="text-gray-600">
+              Ta sekcja pozwala na zarządzanie elastycznymi strukturami danych w
+              MongoDB. Dostępne kolekcje:
+            </p>
+            <ul class="list-disc list-inside mt-2 ml-4 text-gray-600">
+              <li>
+                Historie Zakupów - kompleksowe dane o historii zakupów klientów
+              </li>
+              <li>Logi Transakcji - szczegółowe logi transakcji bankowych</li>
+              <li>
+                Zachowania Klientów - analiza aktywności i zachowań klientów
+              </li>
+              <li>
+                Profile Sprzedawców - rozszerzone profile sprzedawców z danymi
+                sprzedażowymi
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-medium text-lg text-gray-700 mb-2">Azure</h4>
+            <p class="text-gray-600">
+              W tej sekcji możesz zarządzać integracjami z usługami chmurowymi
+              Azure:
+            </p>
+            <ul class="list-disc list-inside mt-2 ml-4 text-gray-600">
+              <li>Azure Storage - zarządzanie przechowywaniem danych</li>
+              <li>
+                Data Factory - konfiguracja przepływów przetwarzania danych
+              </li>
+            </ul>
+          </div>
+
+          <div class="border-t border-gray-200 pt-4">
+            <p class="text-gray-500 text-sm">
+              Potrzebujesz więcej pomocy? Skontaktuj się z administratorem
+              systemu.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script src="dashboard.js"></script>
-</body>
+  </body>
 </html>
