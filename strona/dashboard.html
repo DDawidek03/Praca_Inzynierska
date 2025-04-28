@@ -332,11 +332,13 @@
                   <label class="block text-sm font-medium text-gray-600 mb-1"
                     >Kraj</label
                   >
-                  <select class="form-input">
+                  <select class="form-input entity-select" name="country">
                     <option value="">Wybierz kraj</option>
                     <option value="1">Polska</option>
                     <option value="2">Niemcy</option>
                     <option value="3">Francja</option>
+                    <option value="4">Wielka Brytania</option>
+                    <option value="5">Stany Zjednoczone</option>
                   </select>
                 </div>
                 <div class="flex items-end">
@@ -516,22 +518,201 @@
               </form>
             </div>
 
-            <!-- Additional forms for other tables would be added here -->
+            <!-- Order Details Form -->
             <div class="table-form" id="order-details-form">
               <h4 class="font-medium text-gray-700 mb-4">
                 Dodaj szczegóły zamówienia
               </h4>
-              <!-- Form contents -->
+              <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Zamówienie</label
+                  >
+                  <select class="form-input">
+                    <option value="">Wybierz zamówienie</option>
+                    <option value="1">Zamówienie #1001 - Jan Kowalski</option>
+                    <option value="2">Zamówienie #1002 - Anna Nowak</option>
+                    <option value="3">Zamówienie #1003 - Firma XYZ</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Produkt</label
+                  >
+                  <select class="form-input">
+                    <option value="">Wybierz produkt</option>
+                    <option value="1">Laptop Dell XPS 13</option>
+                    <option value="2">iPhone 14 Pro</option>
+                    <option value="3">Słuchawki Sony WH-1000XM5</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Ilość</label
+                  >
+                  <input
+                    type="number"
+                    min="1"
+                    class="form-input"
+                    placeholder="np. 2" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Cena jednostkowa</label
+                  >
+                  <input
+                    type="number"
+                    step="0.01"
+                    class="form-input"
+                    placeholder="np. 3999.99" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Cena zakupu jednostkowa</label
+                  >
+                  <input
+                    type="number"
+                    step="0.01"
+                    class="form-input"
+                    placeholder="np. 2999.99" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Rabat (%)</label
+                  >
+                  <input
+                    type="number"
+                    min="0"
+                    max="100"
+                    step="0.01"
+                    class="form-input"
+                    placeholder="np. 10.00" />
+                </div>
+                <div class="flex items-end">
+                  <button type="submit" class="submit-btn">
+                    <i class="fas fa-save mr-2"></i>Zapisz szczegóły
+                  </button>
+                </div>
+              </form>
             </div>
 
+            <!-- Categories Form -->
             <div class="table-form" id="categories-form">
               <h4 class="font-medium text-gray-700 mb-4">Dodaj kategorię</h4>
-              <!-- Form contents -->
+              <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Nazwa kategorii</label
+                  >
+                  <input
+                    type="text"
+                    class="form-input"
+                    placeholder="np. Elektronika" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Kategoria nadrzędna</label
+                  >
+                  <select class="form-input">
+                    <option value="">Brak (kategoria główna)</option>
+                    <option value="1">Elektronika</option>
+                    <option value="2">Ubrania</option>
+                    <option value="3">Dom i ogród</option>
+                  </select>
+                </div>
+                <div class="md:col-span-2">
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Opis</label
+                  >
+                  <textarea
+                    class="form-input"
+                    rows="2"
+                    placeholder="np. Kategoria zawierająca urządzenia elektroniczne..."></textarea>
+                </div>
+                <div class="flex items-end">
+                  <button type="submit" class="submit-btn">
+                    <i class="fas fa-save mr-2"></i>Zapisz kategorię
+                  </button>
+                </div>
+              </form>
             </div>
 
+            <!-- Promotions Form -->
             <div class="table-form" id="promotions-form">
               <h4 class="font-medium text-gray-700 mb-4">Dodaj promocję</h4>
-              <!-- Form contents -->
+              <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Nazwa promocji</label
+                  >
+                  <input
+                    type="text"
+                    class="form-input"
+                    placeholder="np. Letnia wyprzedaż" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Procent rabatu</label
+                  >
+                  <input
+                    type="number"
+                    min="0"
+                    max="100"
+                    step="0.01"
+                    class="form-input"
+                    placeholder="np. 15.00" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Data rozpoczęcia</label
+                  >
+                  <input type="date" class="form-input" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Data zakończenia</label
+                  >
+                  <input type="date" class="form-input" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Produkt (opcjonalnie)</label
+                  >
+                  <select class="form-input">
+                    <option value="">Wybierz produkt</option>
+                    <option value="1">Laptop Dell XPS 13</option>
+                    <option value="2">iPhone 14 Pro</option>
+                    <option value="3">Słuchawki Sony WH-1000XM5</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Kategoria (opcjonalnie)</label
+                  >
+                  <select class="form-input">
+                    <option value="">Wybierz kategorię</option>
+                    <option value="1">Elektronika</option>
+                    <option value="2">Ubrania</option>
+                    <option value="3">Dom i ogród</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Sprzedawca (opcjonalnie)</label
+                  >
+                  <select class="form-input">
+                    <option value="">Wybierz sprzedawcę</option>
+                    <option value="1">Jan Kowalski</option>
+                    <option value="2">Anna Nowak</option>
+                    <option value="3">Piotr Wiśniewski</option>
+                  </select>
+                </div>
+                <div class="flex items-end">
+                  <button type="submit" class="submit-btn">
+                    <i class="fas fa-save mr-2"></i>Zapisz promocję
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
@@ -831,8 +1012,8 @@
                 <div class="ml-3">
                   <p class="text-sm text-yellow-700">
                     Dokument historie zakupów zawiera złożone dane o wszystkich
-                    zakupach klienta. Dodaj podstawowe dane poniżej lub
-                    zaimportuj pełny dokument JSON.
+                    zakupach klienta zgodnie ze schematem kolekcji MongoDB
+                    "PurchaseHistories".
                   </p>
                 </div>
               </div>
@@ -840,7 +1021,7 @@
 
             <form class="space-y-6">
               <!-- Basic information -->
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div>
                   <label class="block text-sm font-medium text-gray-600 mb-1"
                     >ID Klienta</label
@@ -858,6 +1039,19 @@
                     type="email"
                     class="form-input"
                     placeholder="np. jan@example.com" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >ID Kraju</label
+                  >
+                  <select class="form-input entity-select">
+                    <option value="">Wybierz kraj</option>
+                    <option value="1">Polska</option>
+                    <option value="2">Niemcy</option>
+                    <option value="3">Francja</option>
+                    <option value="4">Wielka Brytania</option>
+                    <option value="5">Stany Zjednoczone</option>
+                  </select>
                 </div>
               </div>
 
@@ -882,6 +1076,47 @@
                   </div>
                   <div>
                     <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Rok</label
+                    >
+                    <input
+                      type="number"
+                      class="form-input"
+                      placeholder="np. 2023"
+                      min="2000"
+                      max="2100" />
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Kwartał</label
+                    >
+                    <select class="form-input">
+                      <option value="1">1 (Styczeń-Marzec)</option>
+                      <option value="2">2 (Kwiecień-Czerwiec)</option>
+                      <option value="3">3 (Lipiec-Wrzesień)</option>
+                      <option value="4">4 (Październik-Grudzień)</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Miesiąc</label
+                    >
+                    <select class="form-input">
+                      <option value="1">1 - Styczeń</option>
+                      <option value="2">2 - Luty</option>
+                      <option value="3">3 - Marzec</option>
+                      <option value="4">4 - Kwiecień</option>
+                      <option value="5">5 - Maj</option>
+                      <option value="6">6 - Czerwiec</option>
+                      <option value="7">7 - Lipiec</option>
+                      <option value="8">8 - Sierpień</option>
+                      <option value="9">9 - Wrzesień</option>
+                      <option value="10">10 - Październik</option>
+                      <option value="11">11 - Listopad</option>
+                      <option value="12">12 - Grudzień</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
                       >Kwota całkowita</label
                     >
                     <input
@@ -894,7 +1129,7 @@
                     <label class="block text-sm font-medium text-gray-600 mb-1"
                       >Status</label
                     >
-                    <select class="form-input">
+                    <select class="form-input data-type-select">
                       <option value="completed">Zrealizowane</option>
                       <option value="processing">W trakcie</option>
                       <option value="shipped">Wysłane</option>
@@ -905,11 +1140,24 @@
                     <label class="block text-sm font-medium text-gray-600 mb-1"
                       >Metoda płatności</label
                     >
-                    <select class="form-input">
+                    <select class="form-input data-type-select">
                       <option value="card">Karta płatnicza</option>
                       <option value="bank-transfer">Przelew bankowy</option>
                       <option value="cash-on-delivery">Za pobraniem</option>
                       <option value="paypal">PayPal</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >ID Kraju wysyłki</label
+                    >
+                    <select class="form-input entity-select">
+                      <option value="">Wybierz kraj wysyłki</option>
+                      <option value="1">Polska</option>
+                      <option value="2">Niemcy</option>
+                      <option value="3">Francja</option>
+                      <option value="4">Wielka Brytania</option>
+                      <option value="5">Stany Zjednoczone</option>
                     </select>
                   </div>
                 </div>
@@ -943,10 +1191,1522 @@
                     <label class="block text-sm font-medium text-gray-600 mb-1"
                       >Typ sprzedawcy</label
                     >
-                    <select class="form-input">
+                    <select class="form-input data-type-select">
                       <option value="individual">Indywidualny</option>
                       <option value="company">Firma</option>
+                      <option value="partner">Partner handlowy</option>
                     </select>
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >ID Regionu</label
+                    >
+                    <select class="form-input entity-select">
+                      <option value="">Wybierz region</option>
+                      <option value="101">Mazowieckie (Polska)</option>
+                      <option value="102">Małopolskie (Polska)</option>
+                      <option value="103">Śląskie (Polska)</option>
+                      <option value="201">Berlin (Niemcy)</option>
+                      <option value="202">Bawaria (Niemcy)</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Products information -->
+              <div class="border-t border-gray-200 pt-6">
+                <h4 class="font-medium text-gray-700 mb-4">
+                  Produkty w zamówieniu
+                </h4>
+                <div class="border border-gray-200 rounded-lg p-4 mb-4">
+                  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div>
+                      <label
+                        class="block text-sm font-medium text-gray-600 mb-1"
+                        >ID Produktu</label
+                      >
+                      <input
+                        type="number"
+                        class="form-input"
+                        placeholder="np. 1001" />
+                    </div>
+                    <div>
+                      <label
+                        class="block text-sm font-medium text-gray-600 mb-1"
+                        >Nazwa produktu</label
+                      >
+                      <input
+                        type="text"
+                        class="form-input"
+                        placeholder="np. Laptop Dell XPS 13" />
+                    </div>
+                    <div>
+                      <label
+                        class="block text-sm font-medium text-gray-600 mb-1"
+                        >ID Kategorii</label
+                      >
+                      <select class="form-input entity-select">
+                        <option value="">Wybierz kategorię</option>
+                        <option value="1">Elektronika</option>
+                        <option value="2">Ubrania</option>
+                        <option value="3">Dom i ogród</option>
+                        <option value="4">Sport</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label
+                        class="block text-sm font-medium text-gray-600 mb-1"
+                        >Nazwa kategorii</label
+                      >
+                      <input
+                        type="text"
+                        class="form-input"
+                        placeholder="np. Elektronika" />
+                    </div>
+                    <div>
+                      <label
+                        class="block text-sm font-medium text-gray-600 mb-1"
+                        >Ilość</label
+                      >
+                      <input
+                        type="number"
+                        min="1"
+                        class="form-input"
+                        placeholder="np. 2" />
+                    </div>
+                    <div>
+                      <label
+                        class="block text-sm font-medium text-gray-600 mb-1"
+                        >Cena jednostkowa</label
+                      >
+                      <input
+                        type="number"
+                        step="0.01"
+                        class="form-input"
+                        placeholder="np. 3999.99" />
+                    </div>
+                    <div>
+                      <label
+                        class="block text-sm font-medium text-gray-600 mb-1"
+                        >Cena zakupu jednostkowa</label
+                      >
+                      <input
+                        type="number"
+                        step="0.01"
+                        class="form-input"
+                        placeholder="np. 2999.99" />
+                    </div>
+                    <div>
+                      <label
+                        class="block text-sm font-medium text-gray-600 mb-1"
+                        >Rabat</label
+                      >
+                      <input
+                        type="number"
+                        step="0.01"
+                        min="0"
+                        class="form-input"
+                        placeholder="np. 0.15" />
+                    </div>
+                  </div>
+                </div>
+                <div class="flex justify-center">
+                  <button
+                    type="button"
+                    class="px-4 py-2 flex items-center text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-lg transition-colors">
+                    <i class="fas fa-plus mr-2"></i>Dodaj więcej produktów
+                  </button>
+                </div>
+              </div>
+
+              <!-- or upload JSON -->
+              <div class="border-t border-gray-200 pt-6">
+                <h4 class="font-medium text-gray-700 mb-4">
+                  Alternatywnie: Prześlij dokument JSON
+                </h4>
+                <div class="flex items-center space-x-3">
+                  <input
+                    type="file"
+                    accept=".json"
+                    class="text-sm text-gray-600 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" />
+                </div>
+                <div class="mt-4">
+                  <textarea
+                    class="form-input font-mono text-sm"
+                    rows="8"
+                    placeholder='{ "CustomerID": 1234, "Email": "customer@example.com", "CountryID": 1, "Purchases": [...] }'></textarea>
+                </div>
+              </div>
+
+              <div class="flex justify-end">
+                <button type="submit" class="submit-btn">
+                  <i class="fas fa-save mr-2"></i>Zapisz historię zakupów
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- SQL Server - Banking Module -->
+        <div class="dashboard-section" id="sql-banking">
+          <h2 class="text-2xl font-bold mb-6">Moduł Bankowy (SQL)</h2>
+
+          <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <div class="flex justify-between items-center mb-6">
+              <h3 class="text-lg font-semibold text-gray-700">
+                Operacje Bankowe
+              </h3>
+            </div>
+
+            <div class="flex space-x-2 mb-6">
+              <button class="table-tab-btn active" data-table="accounts">
+                Konta bankowe
+              </button>
+              <button class="table-tab-btn" data-table="transactions">
+                Transakcje
+              </button>
+            </div>
+
+            <!-- Bank Accounts Form -->
+            <div class="table-form active" id="accounts-form">
+              <h4 class="font-medium text-gray-700 mb-4">
+                Dodaj nowe konto bankowe
+              </h4>
+              <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Numer konta</label
+                  >
+                  <input
+                    type="text"
+                    class="form-input"
+                    placeholder="np. 12 3456 7890 1234 5678 9012 3456" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Nazwa banku</label
+                  >
+                  <input
+                    type="text"
+                    class="form-input"
+                    placeholder="np. Bank Polski" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Waluta</label
+                  >
+                  <select class="form-input">
+                    <option value="PLN">PLN</option>
+                    <option value="EUR">EUR</option>
+                    <option value="USD">USD</option>
+                    <option value="GBP">GBP</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Saldo początkowe</label
+                  >
+                  <input
+                    type="number"
+                    step="0.01"
+                    class="form-input"
+                    placeholder="np. 10000.00" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Typ konta</label
+                  >
+                  <select class="form-input">
+                    <option value="checking">Rozliczeniowe</option>
+                    <option value="savings">Oszczędnościowe</option>
+                    <option value="business">Firmowe</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Właściciel (Sprzedawca)</label
+                  >
+                  <select class="form-input">
+                    <option value="">Wybierz sprzedawcę</option>
+                    <option value="1">Jan Kowalski</option>
+                    <option value="2">Anna Nowak</option>
+                    <option value="3">Piotr Wiśniewski</option>
+                  </select>
+                </div>
+                <div class="flex items-end">
+                  <button type="submit" class="submit-btn">
+                    <i class="fas fa-save mr-2"></i>Zapisz konto
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <!-- Bank Transactions Form -->
+            <div class="table-form" id="transactions-form">
+              <h4 class="font-medium text-gray-700 mb-4">
+                Dodaj nową transakcję
+              </h4>
+              <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Konto</label
+                  >
+                  <select class="form-input">
+                    <option value="">Wybierz konto bankowe</option>
+                    <option value="1">12 3456... - Bank Polski (PLN)</option>
+                    <option value="2">98 7654... - Bank Niemiecki (EUR)</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Data transakcji</label
+                  >
+                  <input type="date" class="form-input" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Kwota</label
+                  >
+                  <input
+                    type="number"
+                    step="0.01"
+                    class="form-input"
+                    placeholder="np. 1500.00" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Typ transakcji</label
+                  >
+                  <select class="form-input">
+                    <option value="deposit">Wpłata</option>
+                    <option value="withdrawal">Wypłata</option>
+                    <option value="transfer">Przelew</option>
+                    <option value="payment">Płatność</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Kontrahent</label
+                  >
+                  <input
+                    type="text"
+                    class="form-input"
+                    placeholder="np. Firma XYZ" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Numer referencyjny</label
+                  >
+                  <input
+                    type="text"
+                    class="form-input"
+                    placeholder="np. REF/2025/12345" />
+                </div>
+                <div class="md:col-span-2">
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Opis</label
+                  >
+                  <textarea
+                    class="form-input"
+                    rows="2"
+                    placeholder="np. Płatność za usługi marketingowe"></textarea>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Sprzedawca</label
+                  >
+                  <select class="form-input">
+                    <option value="">Wybierz sprzedawcę</option>
+                    <option value="1">Jan Kowalski</option>
+                    <option value="2">Anna Nowak</option>
+                    <option value="3">Piotr Wiśniewski</option>
+                  </select>
+                </div>
+                <div class="flex items-end">
+                  <button type="submit" class="submit-btn">
+                    <i class="fas fa-save mr-2"></i>Zapisz transakcję
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- SQL Server - Geographic Module -->
+        <div class="dashboard-section" id="sql-geo">
+          <h2 class="text-2xl font-bold mb-6">Moduł Geograficzny (SQL)</h2>
+
+          <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <div class="flex justify-between items-center mb-6">
+              <h3 class="text-lg font-semibold text-gray-700">
+                Zarządzanie Danymi Geograficznymi
+              </h3>
+            </div>
+
+            <div class="flex space-x-2 mb-6">
+              <button class="table-tab-btn active" data-table="countries">
+                Kraje
+              </button>
+              <button class="table-tab-btn" data-table="regions">
+                Regiony
+              </button>
+            </div>
+
+            <!-- Countries Form -->
+            <div class="table-form active" id="countries-form">
+              <h4 class="font-medium text-gray-700 mb-4">Dodaj nowy kraj</h4>
+              <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Nazwa kraju</label
+                  >
+                  <input
+                    type="text"
+                    class="form-input"
+                    placeholder="np. Polska" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Kontynent</label
+                  >
+                  <select class="form-input">
+                    <option value="Europa">Europa</option>
+                    <option value="Azja">Azja</option>
+                    <option value="Ameryka Północna">Ameryka Północna</option>
+                    <option value="Ameryka Południowa">
+                      Ameryka Południowa
+                    </option>
+                    <option value="Afryka">Afryka</option>
+                    <option value="Australia i Oceania">
+                      Australia i Oceania
+                    </option>
+                    <option value="Antarktyda">Antarktyda</option>
+                  </select>
+                </div>
+                <div class="flex items-end">
+                  <button type="submit" class="submit-btn">
+                    <i class="fas fa-save mr-2"></i>Zapisz kraj
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <!-- Regions Form -->
+            <div class="table-form" id="regions-form">
+              <h4 class="font-medium text-gray-700 mb-4">Dodaj nowy region</h4>
+              <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Nazwa regionu</label
+                  >
+                  <input
+                    type="text"
+                    class="form-input"
+                    placeholder="np. Mazowieckie" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Kraj</label
+                  >
+                  <select class="form-input">
+                    <option value="">Wybierz kraj</option>
+                    <option value="1">Polska</option>
+                    <option value="2">Niemcy</option>
+                    <option value="3">Francja</option>
+                  </select>
+                </div>
+                <div class="flex items-end">
+                  <button type="submit" class="submit-btn">
+                    <i class="fas fa-save mr-2"></i>Zapisz region
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- MongoDB - Purchase Histories -->
+        <div class="dashboard-section" id="mongo-purchase">
+          <h2 class="text-2xl font-bold mb-6">Historie Zakupów (MongoDB)</h2>
+
+          <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <h3 class="text-lg font-semibold text-gray-700 mb-4">
+              Dodaj historię zakupów
+            </h3>
+
+            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6">
+              <div class="flex">
+                <div class="flex-shrink-0">
+                  <i class="fas fa-info-circle text-yellow-600"></i>
+                </div>
+                <div class="ml-3">
+                  <p class="text-sm text-yellow-700">
+                    Dokument historie zakupów zawiera złożone dane o wszystkich
+                    zakupach klienta zgodnie ze schematem kolekcji MongoDB
+                    "PurchaseHistories".
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <form class="space-y-6">
+              <!-- Basic information -->
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >ID Klienta</label
+                  >
+                  <input
+                    type="number"
+                    class="form-input"
+                    placeholder="np. 1234" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Email</label
+                  >
+                  <input
+                    type="email"
+                    class="form-input"
+                    placeholder="np. jan@example.com" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >ID Kraju</label
+                  >
+                  <select class="form-input entity-select">
+                    <option value="">Wybierz kraj</option>
+                    <option value="1">Polska</option>
+                    <option value="2">Niemcy</option>
+                    <option value="3">Francja</option>
+                    <option value="4">Wielka Brytania</option>
+                    <option value="5">Stany Zjednoczone</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Purchase details -->
+              <div class="border-t border-gray-200 pt-6">
+                <h4 class="font-medium text-gray-700 mb-4">Zakup</h4>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >ID Zamówienia</label
+                    >
+                    <input
+                      type="number"
+                      class="form-input"
+                      placeholder="np. 5678" />
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Data zamówienia</label
+                    >
+                    <input type="date" class="form-input" />
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Rok</label
+                    >
+                    <input
+                      type="number"
+                      class="form-input"
+                      placeholder="np. 2023"
+                      min="2000"
+                      max="2100" />
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Kwartał</label
+                    >
+                    <select class="form-input">
+                      <option value="1">1 (Styczeń-Marzec)</option>
+                      <option value="2">2 (Kwiecień-Czerwiec)</option>
+                      <option value="3">3 (Lipiec-Wrzesień)</option>
+                      <option value="4">4 (Październik-Grudzień)</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Miesiąc</label
+                    >
+                    <select class="form-input">
+                      <option value="1">1 - Styczeń</option>
+                      <option value="2">2 - Luty</option>
+                      <option value="3">3 - Marzec</option>
+                      <option value="4">4 - Kwiecień</option>
+                      <option value="5">5 - Maj</option>
+                      <option value="6">6 - Czerwiec</option>
+                      <option value="7">7 - Lipiec</option>
+                      <option value="8">8 - Sierpień</option>
+                      <option value="9">9 - Wrzesień</option>
+                      <option value="10">10 - Październik</option>
+                      <option value="11">11 - Listopad</option>
+                      <option value="12">12 - Grudzień</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Kwota całkowita</label
+                    >
+                    <input
+                      type="number"
+                      step="0.01"
+                      class="form-input"
+                      placeholder="np. 499.99" />
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Status</label
+                    >
+                    <select class="form-input data-type-select">
+                      <option value="completed">Zrealizowane</option>
+                      <option value="processing">W trakcie</option>
+                      <option value="shipped">Wysłane</option>
+                      <option value="cancelled">Anulowane</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Metoda płatności</label
+                    >
+                    <select class="form-input data-type-select">
+                      <option value="card">Karta płatnicza</option>
+                      <option value="bank-transfer">Przelew bankowy</option>
+                      <option value="cash-on-delivery">Za pobraniem</option>
+                      <option value="paypal">PayPal</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >ID Kraju wysyłki</label
+                    >
+                    <select class="form-input entity-select">
+                      <option value="">Wybierz kraj wysyłki</option>
+                      <option value="1">Polska</option>
+                      <option value="2">Niemcy</option>
+                      <option value="3">Francja</option>
+                      <option value="4">Wielka Brytania</option>
+                      <option value="5">Stany Zjednoczone</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Seller information -->
+              <div class="border-t border-gray-200 pt-6">
+                <h4 class="font-medium text-gray-700 mb-4">
+                  Informacje o sprzedawcy
+                </h4>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >ID Sprzedawcy</label
+                    >
+                    <input
+                      type="number"
+                      class="form-input"
+                      placeholder="np. 123" />
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Nazwa sprzedawcy</label
+                    >
+                    <input
+                      type="text"
+                      class="form-input"
+                      placeholder="np. Jan Kowalski" />
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Typ sprzedawcy</label
+                    >
+                    <select class="form-input data-type-select">
+                      <option value="individual">Indywidualny</option>
+                      <option value="company">Firma</option>
+                      <option value="partner">Partner handlowy</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >ID Regionu</label
+                    >
+                    <select class="form-input entity-select">
+                      <option value="">Wybierz region</option>
+                      <option value="101">Mazowieckie (Polska)</option>
+                      <option value="102">Małopolskie (Polska)</option>
+                      <option value="103">Śląskie (Polska)</option>
+                      <option value="201">Berlin (Niemcy)</option>
+                      <option value="202">Bawaria (Niemcy)</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Products information -->
+              <div class="border-t border-gray-200 pt-6">
+                <h4 class="font-medium text-gray-700 mb-4">
+                  Produkty w zamówieniu
+                </h4>
+                <div class="border border-gray-200 rounded-lg p-4 mb-4">
+                  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div>
+                      <label
+                        class="block text-sm font-medium text-gray-600 mb-1"
+                        >ID Produktu</label
+                      >
+                      <input
+                        type="number"
+                        class="form-input"
+                        placeholder="np. 1001" />
+                    </div>
+                    <div>
+                      <label
+                        class="block text-sm font-medium text-gray-600 mb-1"
+                        >Nazwa produktu</label
+                      >
+                      <input
+                        type="text"
+                        class="form-input"
+                        placeholder="np. Laptop Dell XPS 13" />
+                    </div>
+                    <div>
+                      <label
+                        class="block text-sm font-medium text-gray-600 mb-1"
+                        >ID Kategorii</label
+                      >
+                      <select class="form-input entity-select">
+                        <option value="">Wybierz kategorię</option>
+                        <option value="1">Elektronika</option>
+                        <option value="2">Ubrania</option>
+                        <option value="3">Dom i ogród</option>
+                        <option value="4">Sport</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label
+                        class="block text-sm font-medium text-gray-600 mb-1"
+                        >Nazwa kategorii</label
+                      >
+                      <input
+                        type="text"
+                        class="form-input"
+                        placeholder="np. Elektronika" />
+                    </div>
+                    <div>
+                      <label
+                        class="block text-sm font-medium text-gray-600 mb-1"
+                        >Ilość</label
+                      >
+                      <input
+                        type="number"
+                        min="1"
+                        class="form-input"
+                        placeholder="np. 2" />
+                    </div>
+                    <div>
+                      <label
+                        class="block text-sm font-medium text-gray-600 mb-1"
+                        >Cena jednostkowa</label
+                      >
+                      <input
+                        type="number"
+                        step="0.01"
+                        class="form-input"
+                        placeholder="np. 3999.99" />
+                    </div>
+                    <div>
+                      <label
+                        class="block text-sm font-medium text-gray-600 mb-1"
+                        >Cena zakupu jednostkowa</label
+                      >
+                      <input
+                        type="number"
+                        step="0.01"
+                        class="form-input"
+                        placeholder="np. 2999.99" />
+                    </div>
+                    <div>
+                      <label
+                        class="block text-sm font-medium text-gray-600 mb-1"
+                        >Rabat</label
+                      >
+                      <input
+                        type="number"
+                        step="0.01"
+                        min="0"
+                        class="form-input"
+                        placeholder="np. 0.15" />
+                    </div>
+                  </div>
+                </div>
+                <div class="flex justify-center">
+                  <button
+                    type="button"
+                    class="px-4 py-2 flex items-center text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-lg transition-colors">
+                    <i class="fas fa-plus mr-2"></i>Dodaj więcej produktów
+                  </button>
+                </div>
+              </div>
+
+              <!-- or upload JSON -->
+              <div class="border-t border-gray-200 pt-6">
+                <h4 class="font-medium text-gray-700 mb-4">
+                  Alternatywnie: Prześlij dokument JSON
+                </h4>
+                <div class="flex items-center space-x-3">
+                  <input
+                    type="file"
+                    accept=".json"
+                    class="text-sm text-gray-600 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" />
+                </div>
+                <div class="mt-4">
+                  <textarea
+                    class="form-input font-mono text-sm"
+                    rows="8"
+                    placeholder='{ "CustomerID": 1234, "Email": "customer@example.com", "CountryID": 1, "Purchases": [...] }'></textarea>
+                </div>
+              </div>
+
+              <div class="flex justify-end">
+                <button type="submit" class="submit-btn">
+                  <i class="fas fa-save mr-2"></i>Zapisz historię zakupów
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- SQL Server - Banking Module -->
+        <div class="dashboard-section" id="sql-banking">
+          <h2 class="text-2xl font-bold mb-6">Moduł Bankowy (SQL)</h2>
+
+          <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <div class="flex justify-between items-center mb-6">
+              <h3 class="text-lg font-semibold text-gray-700">
+                Operacje Bankowe
+              </h3>
+            </div>
+
+            <div class="flex space-x-2 mb-6">
+              <button class="table-tab-btn active" data-table="accounts">
+                Konta bankowe
+              </button>
+              <button class="table-tab-btn" data-table="transactions">
+                Transakcje
+              </button>
+            </div>
+
+            <!-- Bank Accounts Form -->
+            <div class="table-form active" id="accounts-form">
+              <h4 class="font-medium text-gray-700 mb-4">
+                Dodaj nowe konto bankowe
+              </h4>
+              <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Numer konta</label
+                  >
+                  <input
+                    type="text"
+                    class="form-input"
+                    placeholder="np. 12 3456 7890 1234 5678 9012 3456" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Nazwa banku</label
+                  >
+                  <input
+                    type="text"
+                    class="form-input"
+                    placeholder="np. Bank Polski" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Waluta</label
+                  >
+                  <select class="form-input">
+                    <option value="PLN">PLN</option>
+                    <option value="EUR">EUR</option>
+                    <option value="USD">USD</option>
+                    <option value="GBP">GBP</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Saldo początkowe</label
+                  >
+                  <input
+                    type="number"
+                    step="0.01"
+                    class="form-input"
+                    placeholder="np. 10000.00" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Typ konta</label
+                  >
+                  <select class="form-input">
+                    <option value="checking">Rozliczeniowe</option>
+                    <option value="savings">Oszczędnościowe</option>
+                    <option value="business">Firmowe</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Właściciel (Sprzedawca)</label
+                  >
+                  <select class="form-input">
+                    <option value="">Wybierz sprzedawcę</option>
+                    <option value="1">Jan Kowalski</option>
+                    <option value="2">Anna Nowak</option>
+                    <option value="3">Piotr Wiśniewski</option>
+                  </select>
+                </div>
+                <div class="flex items-end">
+                  <button type="submit" class="submit-btn">
+                    <i class="fas fa-save mr-2"></i>Zapisz konto
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <!-- Bank Transactions Form -->
+            <div class="table-form" id="transactions-form">
+              <h4 class="font-medium text-gray-700 mb-4">
+                Dodaj nową transakcję
+              </h4>
+              <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Konto</label
+                  >
+                  <select class="form-input">
+                    <option value="">Wybierz konto bankowe</option>
+                    <option value="1">12 3456... - Bank Polski (PLN)</option>
+                    <option value="2">98 7654... - Bank Niemiecki (EUR)</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Data transakcji</label
+                  >
+                  <input type="date" class="form-input" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Kwota</label
+                  >
+                  <input
+                    type="number"
+                    step="0.01"
+                    class="form-input"
+                    placeholder="np. 1500.00" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Typ transakcji</label
+                  >
+                  <select class="form-input">
+                    <option value="deposit">Wpłata</option>
+                    <option value="withdrawal">Wypłata</option>
+                    <option value="transfer">Przelew</option>
+                    <option value="payment">Płatność</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Kontrahent</label
+                  >
+                  <input
+                    type="text"
+                    class="form-input"
+                    placeholder="np. Firma XYZ" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Numer referencyjny</label
+                  >
+                  <input
+                    type="text"
+                    class="form-input"
+                    placeholder="np. REF/2025/12345" />
+                </div>
+                <div class="md:col-span-2">
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Opis</label
+                  >
+                  <textarea
+                    class="form-input"
+                    rows="2"
+                    placeholder="np. Płatność za usługi marketingowe"></textarea>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Sprzedawca</label
+                  >
+                  <select class="form-input">
+                    <option value="">Wybierz sprzedawcę</option>
+                    <option value="1">Jan Kowalski</option>
+                    <option value="2">Anna Nowak</option>
+                    <option value="3">Piotr Wiśniewski</option>
+                  </select>
+                </div>
+                <div class="flex items-end">
+                  <button type="submit" class="submit-btn">
+                    <i class="fas fa-save mr-2"></i>Zapisz transakcję
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- SQL Server - Geographic Module -->
+        <div class="dashboard-section" id="sql-geo">
+          <h2 class="text-2xl font-bold mb-6">Moduł Geograficzny (SQL)</h2>
+
+          <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <div class="flex justify-between items-center mb-6">
+              <h3 class="text-lg font-semibold text-gray-700">
+                Zarządzanie Danymi Geograficznymi
+              </h3>
+            </div>
+
+            <div class="flex space-x-2 mb-6">
+              <button class="table-tab-btn active" data-table="countries">
+                Kraje
+              </button>
+              <button class="table-tab-btn" data-table="regions">
+                Regiony
+              </button>
+            </div>
+
+            <!-- Countries Form -->
+            <div class="table-form active" id="countries-form">
+              <h4 class="font-medium text-gray-700 mb-4">Dodaj nowy kraj</h4>
+              <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Nazwa kraju</label
+                  >
+                  <input
+                    type="text"
+                    class="form-input"
+                    placeholder="np. Polska" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Kontynent</label
+                  >
+                  <select class="form-input">
+                    <option value="Europa">Europa</option>
+                    <option value="Azja">Azja</option>
+                    <option value="Ameryka Północna">Ameryka Północna</option>
+                    <option value="Ameryka Południowa">
+                      Ameryka Południowa
+                    </option>
+                    <option value="Afryka">Afryka</option>
+                    <option value="Australia i Oceania">
+                      Australia i Oceania
+                    </option>
+                    <option value="Antarktyda">Antarktyda</option>
+                  </select>
+                </div>
+                <div class="flex items-end">
+                  <button type="submit" class="submit-btn">
+                    <i class="fas fa-save mr-2"></i>Zapisz kraj
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <!-- Regions Form -->
+            <div class="table-form" id="regions-form">
+              <h4 class="font-medium text-gray-700 mb-4">Dodaj nowy region</h4>
+              <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Nazwa regionu</label
+                  >
+                  <input
+                    type="text"
+                    class="form-input"
+                    placeholder="np. Mazowieckie" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Kraj</label
+                  >
+                  <select class="form-input">
+                    <option value="">Wybierz kraj</option>
+                    <option value="1">Polska</option>
+                    <option value="2">Niemcy</option>
+                    <option value="3">Francja</option>
+                  </select>
+                </div>
+                <div class="flex items-end">
+                  <button type="submit" class="submit-btn">
+                    <i class="fas fa-save mr-2"></i>Zapisz region
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- MongoDB - Purchase Histories -->
+        <div class="dashboard-section" id="mongo-purchase">
+          <h2 class="text-2xl font-bold mb-6">Historie Zakupów (MongoDB)</h2>
+
+          <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <h3 class="text-lg font-semibold text-gray-700 mb-4">
+              Dodaj historię zakupów
+            </h3>
+
+            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6">
+              <div class="flex">
+                <div class="flex-shrink-0">
+                  <i class="fas fa-info-circle text-yellow-600"></i>
+                </div>
+                <div class="ml-3">
+                  <p class="text-sm text-yellow-700">
+                    Dokument historie zakupów zawiera złożone dane o wszystkich
+                    zakupach klienta zgodnie ze schematem kolekcji MongoDB
+                    "PurchaseHistories".
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <form class="space-y-6">
+              <!-- Basic information -->
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >ID Klienta</label
+                  >
+                  <input
+                    type="number"
+                    class="form-input"
+                    placeholder="np. 1234" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Email</label
+                  >
+                  <input
+                    type="email"
+                    class="form-input"
+                    placeholder="np. jan@example.com" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >ID Kraju</label
+                  >
+                  <select class="form-input entity-select">
+                    <option value="">Wybierz kraj</option>
+                    <option value="1">Polska</option>
+                    <option value="2">Niemcy</option>
+                    <option value="3">Francja</option>
+                    <option value="4">Wielka Brytania</option>
+                    <option value="5">Stany Zjednoczone</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Purchase details -->
+              <div class="border-t border-gray-200 pt-6">
+                <h4 class="font-medium text-gray-700 mb-4">Zakup</h4>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >ID Zamówienia</label
+                    >
+                    <input
+                      type="number"
+                      class="form-input"
+                      placeholder="np. 5678" />
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Data zamówienia</label
+                    >
+                    <input type="date" class="form-input" />
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Rok</label
+                    >
+                    <input
+                      type="number"
+                      class="form-input"
+                      placeholder="np. 2023"
+                      min="2000"
+                      max="2100" />
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Kwartał</label
+                    >
+                    <select class="form-input">
+                      <option value="1">1 (Styczeń-Marzec)</option>
+                      <option value="2">2 (Kwiecień-Czerwiec)</option>
+                      <option value="3">3 (Lipiec-Wrzesień)</option>
+                      <option value="4">4 (Październik-Grudzień)</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Miesiąc</label
+                    >
+                    <select class="form-input">
+                      <option value="1">1 - Styczeń</option>
+                      <option value="2">2 - Luty</option>
+                      <option value="3">3 - Marzec</option>
+                      <option value="4">4 - Kwiecień</option>
+                      <option value="5">5 - Maj</option>
+                      <option value="6">6 - Czerwiec</option>
+                      <option value="7">7 - Lipiec</option>
+                      <option value="8">8 - Sierpień</option>
+                      <option value="9">9 - Wrzesień</option>
+                      <option value="10">10 - Październik</option>
+                      <option value="11">11 - Listopad</option>
+                      <option value="12">12 - Grudzień</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Kwota całkowita</label
+                    >
+                    <input
+                      type="number"
+                      step="0.01"
+                      class="form-input"
+                      placeholder="np. 499.99" />
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Status</label
+                    >
+                    <select class="form-input data-type-select">
+                      <option value="completed">Zrealizowane</option>
+                      <option value="processing">W trakcie</option>
+                      <option value="shipped">Wysłane</option>
+                      <option value="cancelled">Anulowane</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Metoda płatności</label
+                    >
+                    <select class="form-input data-type-select">
+                      <option value="card">Karta płatnicza</option>
+                      <option value="bank-transfer">Przelew bankowy</option>
+                      <option value="cash-on-delivery">Za pobraniem</option>
+                      <option value="paypal">PayPal</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >ID Kraju wysyłki</label
+                    >
+                    <select class="form-input entity-select">
+                      <option value="">Wybierz kraj wysyłki</option>
+                      <option value="1">Polska</option>
+                      <option value="2">Niemcy</option>
+                      <option value="3">Francja</option>
+                      <option value="4">Wielka Brytania</option>
+                      <option value="5">Stany Zjednoczone</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Seller information -->
+              <div class="border-t border-gray-200 pt-6">
+                <h4 class="font-medium text-gray-700 mb-4">
+                  Informacje o sprzedawcy
+                </h4>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >ID Sprzedawcy</label
+                    >
+                    <input
+                      type="number"
+                      class="form-input"
+                      placeholder="np. 123" />
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Nazwa sprzedawcy</label
+                    >
+                    <input
+                      type="text"
+                      class="form-input"
+                      placeholder="np. Jan Kowalski" />
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Typ sprzedawcy</label
+                    >
+                    <select class="form-input data-type-select">
+                      <option value="individual">Indywidualny</option>
+                      <option value="company">Firma</option>
+                      <option value="partner">Partner handlowy</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >ID Regionu</label
+                    >
+                    <select class="form-input entity-select">
+                      <option value="">Wybierz region</option>
+                      <option value="101">Mazowieckie (Polska)</option>
+                      <option value="102">Małopolskie (Polska)</option>
+                      <option value="103">Śląskie (Polska)</option>
+                      <option value="201">Berlin (Niemcy)</option>
+                      <option value="202">Bawaria (Niemcy)</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- or upload JSON -->
+              <div class="border-t border-gray-200 pt-6">
+                <h4 class="font-medium text-gray-700 mb-4">
+                  Alternatywnie: Prześlij log JSON
+                </h4>
+                <div class="flex items-center space-x-3">
+                  <input
+                    type="file"
+                    accept=".json"
+                    class="text-sm text-gray-600 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" />
+                </div>
+                <div class="mt-4">
+                  <textarea
+                    class="form-input font-mono text-sm"
+                    rows="8"
+                    placeholder='{ "AccountID": 1234, "AccountNumber": "PL12345678901234567890", "Currency": "PLN", "Transactions": [...] }'></textarea>
+                </div>
+              </div>
+
+              <div class="flex justify-end">
+                <button type="submit" class="submit-btn">
+                  <i class="fas fa-save mr-2"></i>Zapisz log transakcji
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- MongoDB - Customer Behavior -->
+        <div class="dashboard-section" id="mongo-behavior">
+          <h2 class="text-2xl font-bold mb-6">Zachowania Klientów (MongoDB)</h2>
+
+          <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <h3 class="text-lg font-semibold text-gray-700 mb-4">
+              Dodaj dane zachowań klienta
+            </h3>
+
+            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6">
+              <div class="flex">
+                <div class="flex-shrink-0">
+                  <i class="fas fa-info-circle text-yellow-600"></i>
+                </div>
+                <div class="ml-3">
+                  <p class="text-sm text-yellow-700">
+                    Ten moduł zawiera analizę aktywności i zachowań klientów,
+                    takich jak nawyki zakupowe, odwiedzane strony, kliknięcia i
+                    preferencje.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <form class="space-y-6">
+              <!-- Basic Customer Info -->
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >ID Klienta</label
+                  >
+                  <input
+                    type="number"
+                    class="form-input"
+                    placeholder="np. 4321" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Email</label
+                  >
+                  <input
+                    type="email"
+                    class="form-input"
+                    placeholder="np. klient@example.com" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Segment klienta</label
+                  >
+                  <select class="form-input">
+                    <option value="new">Nowy</option>
+                    <option value="returning">Powracający</option>
+                    <option value="loyal">Lojalny</option>
+                    <option value="vip">VIP</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Visit Data -->
+              <div class="border-t border-gray-200 pt-6">
+                <h4 class="font-medium text-gray-700 mb-4">Dane wizyt</h4>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Ostatnia wizyta</label
+                    >
+                    <input type="datetime-local" class="form-input" />
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Liczba wizyt</label
+                    >
+                    <input
+                      type="number"
+                      min="0"
+                      class="form-input"
+                      placeholder="np. 15" />
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Średni czas sesji (min)</label
+                    >
+                    <input
+                      type="number"
+                      step="0.1"
+                      min="0"
+                      class="form-input"
+                      placeholder="np. 8.5" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Shopping Behavior -->
+              <div class="border-t border-gray-200 pt-6">
+                <h4 class="font-medium text-gray-700 mb-4">
+                  Zachowania zakupowe
+                </h4>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Całkowita wartość zakupów</label
+                    >
+                    <input
+                      type="number"
+                      step="0.01"
+                      min="0"
+                      class="form-input"
+                      placeholder="np. 2499.99" />
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Liczba transakcji</label
+                    >
+                    <input
+                      type="number"
+                      min="0"
+                      class="form-input"
+                      placeholder="np. 8" />
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Średnia wartość koszyka</label
+                    >
+                    <input
+                      type="number"
+                      step="0.01"
+                      min="0"
+                      class="form-input"
+                      placeholder="np. 312.50" />
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Preferowana kategoria</label
+                    >
+                    <select class="form-input">
+                      <option value="">Wybierz kategorię</option>
+                      <option value="electronics">Elektronika</option>
+                      <option value="clothing">Odzież</option>
+                      <option value="furniture">Meble</option>
+                      <option value="books">Książki</option>
+                      <option value="sports">Sport</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Preferowana forma płatności</label
+                    >
+                    <select class="form-input">
+                      <option value="card">Karta płatnicza</option>
+                      <option value="transfer">Przelew bankowy</option>
+                      <option value="paypal">PayPal</option>
+                      <option value="cod">Za pobraniem</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Współczynnik porzuceń koszyka (%)</label
+                    >
+                    <input
+                      type="number"
+                      min="0"
+                      max="100"
+                      step="0.1"
+                      class="form-input"
+                      placeholder="np. 25.5" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Engagement Metrics -->
+              <div class="border-t border-gray-200 pt-6">
+                <h4 class="font-medium text-gray-700 mb-4">
+                  Metryki zaangażowania
+                </h4>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Otwarte emaile (%)</label
+                    >
+                    <input
+                      type="number"
+                      min="0"
+                      max="100"
+                      step="0.1"
+                      class="form-input"
+                      placeholder="np. 42.3" />
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Kliknięcia w reklamy</label
+                    >
+                    <input
+                      type="number"
+                      min="0"
+                      class="form-input"
+                      placeholder="np. 7" />
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Recenzje i opinie</label
+                    >
+                    <input
+                      type="number"
+                      min="0"
+                      class="form-input"
+                      placeholder="np. 3" />
                   </div>
                 </div>
               </div>
@@ -959,13 +2719,763 @@
                 <div class="flex items-center space-x-3">
                   <input
                     type="file"
+                    accept=".json"
                     class="text-sm text-gray-600 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" />
                 </div>
               </div>
 
               <div class="flex justify-end">
                 <button type="submit" class="submit-btn">
-                  <i class="fas fa-save mr-2"></i>Zapisz historię zakupów
+                  <i class="fas fa-save mr-2"></i>Zapisz dane zachowań
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- MongoDB - Seller Profiles -->
+        <div class="dashboard-section" id="mongo-profiles">
+          <h2 class="text-2xl font-bold mb-6">Profile Sprzedawców (MongoDB)</h2>
+
+          <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <h3 class="text-lg font-semibold text-gray-700 mb-4">
+              Dodaj profil sprzedawcy
+            </h3>
+
+            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6">
+              <div class="flex">
+                <div class="flex-shrink-0">
+                  <i class="fas fa-info-circle text-yellow-600"></i>
+                </div>
+                <div class="ml-3">
+                  <p class="text-sm text-yellow-700">
+                    Profile sprzedawców zawierają rozszerzone informacje o
+                    sprzedawcach wraz z analityką sprzedaży i wydajności.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <form class="space-y-6">
+              <!-- Basic Seller Info -->
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >ID Sprzedawcy</label
+                  >
+                  <input
+                    type="number"
+                    class="form-input"
+                    placeholder="np. 123" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Imię</label
+                  >
+                  <input type="text" class="form-input" placeholder="np. Jan" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Nazwisko</label
+                  >
+                  <input
+                    type="text"
+                    class="form-input"
+                    placeholder="np. Kowalski" />
+                </div>
+              </div>
+
+              <!-- Business Info -->
+              <div class="border-t border-gray-200 pt-6">
+                <h4 class="font-medium text-gray-700 mb-4">
+                  Informacje biznesowe
+                </h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Nazwa firmy</label
+                    >
+                    <input
+                      type="text"
+                      class="form-input"
+                      placeholder="np. GlobalSell Sp. z o.o." />
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >NIP</label
+                    >
+                    <input
+                      type="text"
+                      class="form-input"
+                      placeholder="np. 1234567890" />
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Data rozpoczęcia współpracy</label
+                    >
+                    <input type="date" class="form-input" />
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Status</label
+                    >
+                    <select class="form-input">
+                      <option value="active">Aktywny</option>
+                      <option value="pending">Oczekujący</option>
+                      <option value="suspended">Zawieszony</option>
+                      <option value="inactive">Nieaktywny</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Performance Metrics -->
+              <div class="border-t border-gray-200 pt-6">
+                <h4 class="font-medium text-gray-700 mb-4">
+                  Metryki wydajności
+                </h4>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Średnia ocena (1-5)</label
+                    >
+                    <input
+                      type="number"
+                      min="1"
+                      max="5"
+                      step="0.1"
+                      class="form-input"
+                      placeholder="np. 4.8" />
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Liczba sprzedaży</label
+                    >
+                    <input
+                      type="number"
+                      min="0"
+                      class="form-input"
+                      placeholder="np. 1250" />
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Przychód całkowity</label
+                    >
+                    <input
+                      type="number"
+                      step="0.01"
+                      min="0"
+                      class="form-input"
+                      placeholder="np. 458750.00" />
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Wskaźnik zwrotów (%)</label
+                    >
+                    <input
+                      type="number"
+                      min="0"
+                      max="100"
+                      step="0.01"
+                      class="form-input"
+                      placeholder="np. 2.35" />
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Kategoria sprzedażowa</label
+                    >
+                    <select class="form-input">
+                      <option value="">Wybierz główną kategorię</option>
+                      <option value="electronics">Elektronika</option>
+                      <option value="clothing">Odzież</option>
+                      <option value="furniture">Meble</option>
+                      <option value="books">Książki</option>
+                      <option value="sports">Sport</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Czas realizacji (dni)</label
+                    >
+                    <input
+                      type="number"
+                      min="0"
+                      step="0.1"
+                      class="form-input"
+                      placeholder="np. 2.3" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Banking Details -->
+              <div class="border-t border-gray-200 pt-6">
+                <h4 class="font-medium text-gray-700 mb-4">
+                  Informacje bankowe
+                </h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Bank</label
+                    >
+                    <input
+                      type="text"
+                      class="form-input"
+                      placeholder="np. Bank Polski" />
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Numer konta</label
+                    >
+                    <input
+                      type="text"
+                      class="form-input"
+                      placeholder="np. PL12 3456 7890 1234 5678 9012 3456" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- or upload JSON -->
+              <div class="border-t border-gray-200 pt-6">
+                <h4 class="font-medium text-gray-700 mb-4">
+                  Alternatywnie: Prześlij dokument JSON
+                </h4>
+                <div class="flex items-center space-x-3">
+                  <input
+                    type="file"
+                    accept=".json"
+                    class="text-sm text-gray-600 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" />
+                </div>
+              </div>
+
+              <div class="flex justify-end">
+                <button type="submit" class="submit-btn">
+                  <i class="fas fa-save mr-2"></i>Zapisz profil sprzedawcy
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Azure Storage Section -->
+        <div class="dashboard-section" id="azure-storage">
+          <h2 class="text-2xl font-bold mb-6">Azure Storage</h2>
+
+          <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <h3 class="text-lg font-semibold text-gray-700 mb-4">
+              Zarządzanie Azure Blob Storage
+            </h3>
+
+            <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-6">
+              <div class="flex">
+                <div class="flex-shrink-0">
+                  <i class="fas fa-info-circle text-blue-600"></i>
+                </div>
+                <div class="ml-3">
+                  <p class="text-sm text-blue-700">
+                    Przesyłaj surowe dane do Azure Blob Storage do późniejszego
+                    przetwarzania przez Data Factory.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <form class="space-y-6">
+              <!-- Storage Account Info -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Kontener</label
+                  >
+                  <select class="form-input">
+                    <option value="">Wybierz kontener</option>
+                    <option value="raw-sales-data">raw-sales-data</option>
+                    <option value="raw-banking-data">raw-banking-data</option>
+                    <option value="processed-data">processed-data</option>
+                    <option value="reports">reports</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Typ danych</label
+                  >
+                  <select class="form-input">
+                    <option value="sales">Dane sprzedażowe</option>
+                    <option value="banking">Dane bankowe</option>
+                    <option value="customer">Dane klientów</option>
+                    <option value="product">Dane produktów</option>
+                    <option value="geo">Dane geograficzne</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- File Upload -->
+              <div class="border-t border-gray-200 pt-6">
+                <h4 class="font-medium text-gray-700 mb-4">Prześlij pliki</h4>
+                <div class="space-y-4">
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Wybierz plik</label
+                    >
+                    <input
+                      type="file"
+                      class="text-sm text-gray-600 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" />
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Ścieżka docelowa (opcjonalnie)</label
+                    >
+                    <input
+                      type="text"
+                      class="form-input"
+                      placeholder="np. raports/sales/2023/" />
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Opis</label
+                    >
+                    <textarea
+                      class="form-input"
+                      rows="2"
+                      placeholder="np. Dane sprzedażowe za kwiecień 2023"></textarea>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex justify-end">
+                <button type="submit" class="submit-btn">
+                  <i class="fas fa-cloud-upload-alt mr-2"></i>Prześlij do Azure
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <h3 class="text-lg font-semibold text-gray-700 mb-4">
+              Azure Cosmos DB
+            </h3>
+
+            <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-6">
+              <div class="flex">
+                <div class="flex-shrink-0">
+                  <i class="fas fa-info-circle text-blue-600"></i>
+                </div>
+                <div class="ml-3">
+                  <p class="text-sm text-blue-700">
+                    Zarządzaj danymi w Azure Cosmos DB z API MongoDB.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <form class="space-y-6">
+              <!-- Database Info -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Baza danych</label
+                  >
+                  <select class="form-input">
+                    <option value="globalvista">GlobalVista</option>
+                    <option value="globalvista-test">GlobalVista-Test</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Kolekcja</label
+                  >
+                  <select class="form-input">
+                    <option value="purchase-history">Historie zakupów</option>
+                    <option value="transaction-logs">Logi transakcji</option>
+                    <option value="customer-behavior">
+                      Zachowania klientów
+                    </option>
+                    <option value="seller-profiles">Profile sprzedawców</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- JSON Document -->
+              <div class="border-t border-gray-200 pt-6">
+                <h4 class="font-medium text-gray-700 mb-4">Dokument JSON</h4>
+                <div class="space-y-4">
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Prześlij plik JSON</label
+                    >
+                    <input
+                      type="file"
+                      class="text-sm text-gray-600 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" />
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >lub wprowadź dokument JSON</label
+                    >
+                    <textarea
+                      class="form-input font-mono text-sm"
+                      rows="10"
+                      placeholder='{ "id": "example123", "data": { "field": "value" } }'></textarea>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex justify-end">
+                <button type="submit" class="submit-btn">
+                  <i class="fas fa-save mr-2"></i>Zapisz do Cosmos DB
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Azure Data Factory Section -->
+        <div class="dashboard-section" id="azure-data-factory">
+          <h2 class="text-2xl font-bold mb-6">Azure Data Factory</h2>
+
+          <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <h3 class="text-lg font-semibold text-gray-700 mb-4">
+              Zarządzanie przepływami ETL
+            </h3>
+
+            <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-6">
+              <div class="flex">
+                <div class="flex-shrink-0">
+                  <i class="fas fa-info-circle text-blue-600"></i>
+                </div>
+                <div class="ml-3">
+                  <p class="text-sm text-blue-700">
+                    Konfiguruj i monitoruj przepływy ETL w Azure Data Factory.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pipelines -->
+            <div class="mb-8">
+              <h4 class="font-medium text-gray-700 mb-4">Uruchom potok</h4>
+              <form class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Wybierz potok</label
+                    >
+                    <select class="form-input">
+                      <option value="">Wybierz potok ETL</option>
+                      <option value="sales-data-processing">
+                        Przetwarzanie danych sprzedażowych
+                      </option>
+                      <option value="banking-data-processing">
+                        Przetwarzanie danych bankowych
+                      </option>
+                      <option value="customer-data-integration">
+                        Integracja danych klientów
+                      </option>
+                      <option value="daily-summary-report">
+                        Raport podsumowujący dzienny
+                      </option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Data przetwarzania</label
+                    >
+                    <input type="date" class="form-input" />
+                  </div>
+                </div>
+
+                <div class="flex justify-end">
+                  <button type="submit" class="submit-btn">
+                    <i class="fas fa-play mr-2"></i>Uruchom potok
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <!-- Pipeline Status -->
+            <div class="border-t border-gray-200 pt-6">
+              <h4 class="font-medium text-gray-700 mb-4">
+                Status ostatnich uruchomień
+              </h4>
+
+              <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                  <thead>
+                    <tr>
+                      <th
+                        class="px-4 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Potok
+                      </th>
+                      <th
+                        class="px-4 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Status
+                      </th>
+                      <th
+                        class="px-4 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Rozpoczęcie
+                      </th>
+                      <th
+                        class="px-4 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Zakończenie
+                      </th>
+                      <th
+                        class="px-4 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Czas trwania
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody class="bg-white divide-y divide-gray-200">
+                    <tr>
+                      <td
+                        class="px-4 py-3 whitespace-nowrap text-sm text-gray-900">
+                        Przetwarzanie danych sprzedażowych
+                      </td>
+                      <td class="px-4 py-3 whitespace-nowrap text-sm">
+                        <span
+                          class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
+                          >Zakończone</span
+                        >
+                      </td>
+                      <td
+                        class="px-4 py-3 whitespace-nowrap text-sm text-gray-500">
+                        15.04.2023 08:15
+                      </td>
+                      <td
+                        class="px-4 py-3 whitespace-nowrap text-sm text-gray-500">
+                        15.04.2023 08:45
+                      </td>
+                      <td
+                        class="px-4 py-3 whitespace-nowrap text-sm text-gray-500">
+                        30 min
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="px-4 py-3 whitespace-nowrap text-sm text-gray-900">
+                        Przetwarzanie danych bankowych
+                      </td>
+                      <td class="px-4 py-3 whitespace-nowrap text-sm">
+                        <span
+                          class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800"
+                          >W trakcie</span
+                        >
+                      </td>
+                      <td
+                        class="px-4 py-3 whitespace-nowrap text-sm text-gray-500">
+                        15.04.2023 09:00
+                      </td>
+                      <td
+                        class="px-4 py-3 whitespace-nowrap text-sm text-gray-500">
+                        -
+                      </td>
+                      <td
+                        class="px-4 py-3 whitespace-nowrap text-sm text-gray-500">
+                        32 min
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="px-4 py-3 whitespace-nowrap text-sm text-gray-900">
+                        Raport podsumowujący dzienny
+                      </td>
+                      <td class="px-4 py-3 whitespace-nowrap text-sm">
+                        <span
+                          class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800"
+                          >Błąd</span
+                        >
+                      </td>
+                      <td
+                        class="px-4 py-3 whitespace-nowrap text-sm text-gray-500">
+                        14.04.2023 23:00
+                      </td>
+                      <td
+                        class="px-4 py-3 whitespace-nowrap text-sm text-gray-500">
+                        14.04.2023 23:15
+                      </td>
+                      <td
+                        class="px-4 py-3 whitespace-nowrap text-sm text-gray-500">
+                        15 min
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Data Factory Config -->
+          <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <h3 class="text-lg font-semibold text-gray-700 mb-4">
+              Konfiguracja transformacji danych
+            </h3>
+
+            <form class="space-y-6">
+              <!-- Basic Config -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Nazwa transformacji</label
+                  >
+                  <input
+                    type="text"
+                    class="form-input"
+                    placeholder="np. CleanSalesData_v1" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-600 mb-1"
+                    >Typ danych</label
+                  >
+                  <select class="form-input">
+                    <option value="sales">Dane sprzedażowe</option>
+                    <option value="banking">Dane bankowe</option>
+                    <option value="customer">Dane klientów</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Transformation Steps -->
+              <div class="border-t border-gray-200 pt-6">
+                <h4 class="font-medium text-gray-700 mb-4">
+                  Kroki transformacji
+                </h4>
+
+                <div class="space-y-4">
+                  <!-- Step 1 -->
+                  <div class="border border-gray-200 rounded-lg p-4">
+                    <div class="flex justify-between items-center mb-2">
+                      <h5 class="font-medium text-gray-700">Krok 1</h5>
+                      <button
+                        type="button"
+                        class="text-gray-400 hover:text-red-500">
+                        <i class="fas fa-trash"></i>
+                      </button>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      <div>
+                        <label
+                          class="block text-sm font-medium text-gray-600 mb-1"
+                          >Typ operacji</label
+                        >
+                        <select class="form-input">
+                          <option value="filter">Filtrowanie</option>
+                          <option value="transform">Transformacja pól</option>
+                          <option value="join">Łączenie danych</option>
+                          <option value="aggregate">Agregacja</option>
+                        </select>
+                      </div>
+                      <div>
+                        <label
+                          class="block text-sm font-medium text-gray-600 mb-1"
+                          >Pole</label
+                        >
+                        <input
+                          type="text"
+                          class="form-input"
+                          placeholder="np. price" />
+                      </div>
+                      <div>
+                        <label
+                          class="block text-sm font-medium text-gray-600 mb-1"
+                          >Operacja</label
+                        >
+                        <input
+                          type="text"
+                          class="form-input"
+                          placeholder="np. price > 100" />
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Step 2 -->
+                  <div class="border border-gray-200 rounded-lg p-4">
+                    <div class="flex justify-between items-center mb-2">
+                      <h5 class="font-medium text-gray-700">Krok 2</h5>
+                      <button
+                        type="button"
+                        class="text-gray-400 hover:text-red-500">
+                        <i class="fas fa-trash"></i>
+                      </button>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      <div>
+                        <label
+                          class="block text-sm font-medium text-gray-600 mb-1"
+                          >Typ operacji</label
+                        >
+                        <select class="form-input">
+                          <option value="filter">Filtrowanie</option>
+                          <option value="transform" selected>
+                            Transformacja pól
+                          </option>
+                          <option value="join">Łączenie danych</option>
+                          <option value="aggregate">Agregacja</option>
+                        </select>
+                      </div>
+                      <div>
+                        <label
+                          class="block text-sm font-medium text-gray-600 mb-1"
+                          >Pole</label
+                        >
+                        <input
+                          type="text"
+                          class="form-input"
+                          placeholder="np. date"
+                          value="date" />
+                      </div>
+                      <div>
+                        <label
+                          class="block text-sm font-medium text-gray-600 mb-1"
+                          >Operacja</label
+                        >
+                        <input
+                          type="text"
+                          class="form-input"
+                          placeholder="np. to_date(date, 'YYYY-MM-DD')"
+                          value="to_date(date, 'YYYY-MM-DD')" />
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Add step button -->
+                  <div class="flex justify-center">
+                    <button
+                      type="button"
+                      class="px-4 py-2 flex items-center text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-lg transition-colors">
+                      <i class="fas fa-plus mr-2"></i>Dodaj krok
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Output Config -->
+              <div class="border-t border-gray-200 pt-6">
+                <h4 class="font-medium text-gray-700 mb-4">
+                  Konfiguracja wyjścia
+                </h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Miejsce docelowe</label
+                    >
+                    <select class="form-input">
+                      <option value="azure-sql">Azure SQL Database</option>
+                      <option value="cosmos-db">Azure Cosmos DB</option>
+                      <option value="blob-storage">Azure Blob Storage</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1"
+                      >Nazwa tabeli/kontenera</label
+                    >
+                    <input
+                      type="text"
+                      class="form-input"
+                      placeholder="np. ProcessedSales" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex justify-end">
+                <button type="submit" class="submit-btn">
+                  <i class="fas fa-save mr-2"></i>Zapisz konfigurację
                 </button>
               </div>
             </form>
