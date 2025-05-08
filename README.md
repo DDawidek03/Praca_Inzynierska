@@ -25,7 +25,7 @@ Globalne korporacje handlowo-finansowe, zarządzające zarówno sprzedażą, jak
    - Azure Cosmos DB (hosting MongoDB).
 4. Power BI
    - Wizualizacja danych w formie interaktywnych dashboardów.
-5. SQL
+5. SQ
    - Zarządzanie i analiza danych w MS SQL Server.
 6. Python
    - Czyszczenie danych bankowych (za pomocą bibliotek np. Pandas, NumPY)
